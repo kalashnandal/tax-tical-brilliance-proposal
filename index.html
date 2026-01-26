@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal | Tax-Tical Brilliance</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Calendly Widget CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0F172A 0%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1e3a8a 100%);
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Step connector line - Desktop Only */
+        @media (min-width: 768px) {
+            .step-connector::after {
+                content: '';
+                position: absolute;
+                top: 2rem;
+                left: 50%;
+                width: 100%;
+                height: 2px;
+                background: #e2e8f0;
+                z-index: -1;
+            }
+        }
+
+        /* Infinite Slider Animation */
+        .slider-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .slider-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+        
+        .slider-item {
+            display: flex;
+            align-items: center;
+            padding: 0 1.5rem; /* Slightly smaller padding for mobile */
+            white-space: nowrap;
+        }
+
+        .slider-item i {
+            margin-right: 0.5rem;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* FAQ Accordion Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Increased max-height for mobile text wrapping */
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-chess-knight text-blue-700 text-2xl"></i>
+                    <span class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Tax-Tical <span class="text-blue-700">Brilliance</span></span>
+                </div>
+                
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-blue-700 font-semibold transition">Why Us</a>
+                    <a href="#process" class="text-slate-600 hover:text-blue-700 font-semibold transition">The Process</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-blue-700 font-semibold transition">Packages</a>
+                    <a href="#faq" class="text-slate-600 hover:text-blue-700 font-semibold transition">FAQ</a>
+                </div>
+                
+                <!-- Desktop CTA -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-lg font-bold text-sm transition shadow-lg shadow-slate-900/20">
+                        Start Growth
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-900 hover:text-blue-700 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-slate-200 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-700 hover:bg-slate-50" onclick="toggleMobileMenu()">Why Us</a>
+                <a href="#process" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-700 hover:bg-slate-50" onclick="toggleMobileMenu()">The Process</a>
+                <a href="#pricing" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-700 hover:bg-slate-50" onclick="toggleMobileMenu()">Packages</a>
+                <a href="#faq" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-700 hover:bg-slate-50" onclick="toggleMobileMenu()">FAQ</a>
+                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold text-white bg-blue-700 hover:bg-blue-800" onclick="toggleMobileMenu()">Start Growth</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 lg:pt-48 lg:pb-24 bg-grid relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-100 rounded-full blur-3xl opacity-50 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center rounded-full px-4 py-1.5 text-xs sm:text-sm font-bold text-blue-800 bg-blue-50 border border-blue-200 mb-8 shadow-sm">
+                    <span class="flex h-2.5 w-2.5 rounded-full bg-blue-600 mr-2 animate-pulse"></span>
+                    2026 Strategy Proposal
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+                    Calculated Strategy. <br>
+                    <span class="gradient-text">Undeniable ROI.</span>
+                </h1>
+                <p class="text-lg sm:text-2xl text-slate-600 mb-10 leading-relaxed max-w-3xl mx-auto">
+                    At <strong>Tax-Tical Brilliance</strong>, we treat your marketing budget with the same precision as a tax return. 
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#pricing" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-blue-700 hover:bg-blue-800 shadow-xl shadow-blue-700/20 transition transform hover:-translate-y-1">
+                        View Investment Plans
+                    </a>
+                    <a href="#process" class="inline-flex justify-center items-center px-8 py-4 border border-slate-300 text-lg font-bold rounded-xl text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm">
+                        See Our Methodology
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Slider Section -->
+    <section class="py-6 sm:py-8 bg-slate-50 border-y border-slate-200 overflow-hidden slider-container">
+        <div class="slider-track">
+            <!-- Slide Set 1 -->
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-brands fa-google"></i> Google Partner</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-chart-line"></i> Analytics 4</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-robot"></i> ChatGPT</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-brands fa-wordpress"></i> WordPress</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-magnifying-glass"></i> SEMrush</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-fire"></i> Hotjar</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-brands fa-hubspot"></i> HubSpot</div>
+            
+            <!-- Slide Set 2 (Duplicate) -->
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-brands fa-google"></i> Google Partner</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-chart-line"></i> Analytics 4</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-robot"></i> ChatGPT</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-brands fa-wordpress"></i> WordPress</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-magnifying-glass"></i> SEMrush</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-solid fa-fire"></i> Hotjar</div>
+            <div class="slider-item text-lg sm:text-xl font-bold text-slate-400"><i class="fa-brands fa-hubspot"></i> HubSpot</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-2">The Tax-Tical Advantage</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">Marketing has changed. <br>Most agencies haven't.</h3>
+                    <p class="text-base sm:text-lg text-slate-600 mb-6">
+                        Old SEO is about "tricking" Google. <strong>New Search</strong> is about being the answer.
+                    </p>
+                    <p class="text-base sm:text-lg text-slate-600 mb-8">
+                        We combine traditional authority building with next-gen <strong>GEO (Generative Engine Optimization)</strong>.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-check text-green-600 bg-green-100 p-2 rounded-full mr-4"></i>
+                            <span class="text-lg font-medium text-slate-800">Precision Targeting</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-check text-green-600 bg-green-100 p-2 rounded-full mr-4"></i>
+                            <span class="text-lg font-medium text-slate-800">CRO-First Approach</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-check text-green-600 bg-green-100 p-2 rounded-full mr-4"></i>
+                            <span class="text-lg font-medium text-slate-800">AI-Ready Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 feature-card">
+                        <i class="fa-solid fa-magnifying-glass-chart text-4xl text-blue-600 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Audit & Analysis</h4>
+                        <p class="text-slate-500 text-sm">We find the leaks in your current funnel before we spend a dime.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 feature-card sm:mt-8">
+                        <i class="fa-solid fa-users-viewfinder text-4xl text-blue-600 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Hyper-Local</h4>
+                        <p class="text-slate-500 text-sm">Dominate the "Near Me" searches that drive actual phone calls.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 feature-card">
+                        <i class="fa-solid fa-robot text-4xl text-blue-600 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">AEO / GEO</h4>
+                        <p class="text-slate-500 text-sm">Optimizing for the AI engines that your customers use daily.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 feature-card sm:mt-8">
+                        <i class="fa-solid fa-file-invoice-dollar text-4xl text-blue-600 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Revenue Focus</h4>
+                        <p class="text-slate-500 text-sm">Vanity metrics don't pay bills. We track leads and sales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Process Section -->
+    <section id="process" class="py-16 sm:py-24 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold">The Tactical Blueprint</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">We don't guess. We execute a proven 4-step battle plan designed to scale your revenue.</p>
+            </div>
+
+            <div class="relative grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center relative z-10 step-connector">
+                    <div class="w-16 h-16 mx-auto bg-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-lg shadow-blue-500/50">1</div>
+                    <h3 class="text-xl font-bold mb-3">The Audit</h3>
+                    <p class="text-slate-400 text-sm px-2">Analyzing your digital footprint and keyword gaps.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center relative z-10 step-connector">
+                    <div class="w-16 h-16 mx-auto bg-slate-700 rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-2 border-slate-600">2</div>
+                    <h3 class="text-xl font-bold mb-3">The Setup</h3>
+                    <p class="text-slate-400 text-sm px-2">GMB optimization and technical fixes.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center relative z-10 step-connector">
+                    <div class="w-16 h-16 mx-auto bg-slate-700 rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-2 border-slate-600">3</div>
+                    <h3 class="text-xl font-bold mb-3">The Offensive</h3>
+                    <p class="text-slate-400 text-sm px-2">Content production and backlink acquisition.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="text-center relative z-10">
+                    <div class="w-16 h-16 mx-auto bg-slate-700 rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-2 border-slate-600">4</div>
+                    <h3 class="text-xl font-bold mb-3">Optimization</h3>
+                    <p class="text-slate-400 text-sm px-2">Refining CRO and doubling down on winners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 sm:py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Choose Your Tier</h2>
+                <p class="mt-4 text-lg text-slate-600">Transparent pricing. Just results.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Visibility Package -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8 lg:p-10 flex flex-col relative overflow-hidden transition hover:border-blue-300">
+                    <div class="mb-6">
+                        <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Foundation</span>
+                        <h3 class="text-3xl font-bold text-slate-900 mt-4">Visibility</h3>
+                        <p class="text-slate-500 mt-2">Establish a defensive line and start capturing local market share.</p>
+                    </div>
+                    <div class="mb-8 pb-8 border-b border-slate-100">
+                        <span class="text-5xl font-extrabold text-slate-900">$500</span>
+                        <span class="text-slate-500 font-medium">/month</span>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-900 font-bold mr-1">50</span> <span class="text-slate-600 text-sm">Targeted Keywords</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-900 font-bold mr-1">30</span> <span class="text-slate-600 text-sm">Backlinks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-900 font-bold mr-1">4</span> <span class="text-slate-600 text-sm">Blog Posts (1/week)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-600 text-sm">Local GMB Optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-500 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-600 text-sm">Basic CRO & GEO/AEO Setup</span>
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="block w-full py-4 px-6 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-800 font-bold text-center rounded-xl transition">
+                        Select Visibility
+                    </a>
+                </div>
+
+                <!-- Performance Package -->
+                <div class="bg-white rounded-3xl shadow-2xl border-2 border-blue-600 p-6 sm:p-8 lg:p-10 flex flex-col relative transform lg:-translate-y-4 z-10">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl uppercase tracking-wide">
+                        Most Popular
+                    </div>
+                    <div class="mb-6">
+                        <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Aggressive Growth</span>
+                        <h3 class="text-3xl font-bold text-slate-900 mt-4">Performance</h3>
+                        <p class="text-slate-500 mt-2">Dominate your niche with high-volume content and authority building.</p>
+                    </div>
+                    <div class="mb-8 pb-8 border-b border-slate-100">
+                        <span class="text-5xl font-extrabold text-slate-900">$1,000</span>
+                        <span class="text-slate-500 font-medium">/month</span>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-900 font-bold mr-1">100</span> <span class="text-slate-600 text-sm">Targeted Keywords</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-900 font-bold mr-1">50</span> <span class="text-slate-600 text-sm">Premium Backlinks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-900 font-bold mr-1">8</span> <span class="text-slate-600 text-sm">Blog Posts (2/week)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-slate-600 text-sm">Advanced GMB & CRO</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-blue-700 font-bold text-sm">Full GEO/AEO Strategy</span>
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="block w-full py-4 px-6 gradient-bg hover:opacity-90 text-white font-bold text-center rounded-xl shadow-lg shadow-blue-600/30 transition">
+                        Start Performance Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-2xl font-bold text-slate-900 mb-12">Trusted by Service Professionals</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-6 bg-slate-50 rounded-2xl">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-4 text-sm">"The Performance package completely changed our intake. We went from 2 calls a week to 15."</p>
+                    <div class="font-bold text-slate-900 text-sm">- Sarah J., Managing Partner</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="p-6 bg-slate-50 rounded-2xl hidden md:block">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-4 text-sm">"I didn't understand AEO until Tax-Tical explained it. Now I'm showing up in AI answers."</p>
+                    <div class="font-bold text-slate-900 text-sm">- Mike T., Financial Consultant</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="p-6 bg-slate-50 rounded-2xl hidden md:block">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-4 text-sm">"Professional, tactical, and precise. The monthly reports show real ROI."</p>
+                    <div class="font-bold text-slate-900 text-sm">- David R., Local Business Owner</div>
+                </div>
+            </div>
+            <!-- Mobile indicator that there are more (Optional visual cue) -->
+            <div class="md:hidden text-center mt-4 text-slate-400 text-xs italic">
+                (More success stories available on desktop)
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Frequently Asked Questions</h2>
+            
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
+                <!-- Left Column -->
+                <div class="space-y-4">
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">1. Why "Tax-Tical"?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">Our name reflects our methodology. We treat your marketing budget with the same precision and accountability as a tax audit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">2. What is GEO/AEO?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">SEO targets Google. GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) target AI like ChatGPT.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">3. Time to see results?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">Technical fixes work instantly. Organic growth typically takes 3-4 months to gain momentum.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">4. Long-term contracts?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">No. We operate on a month-to-month basis.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">5. Reporting frequency?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">Detailed reports on the 1st of every month.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-4">
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">6. Do you handle PPC Ads?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">These packages are Organic focus. We can add a PPC layer for an additional fee.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">7. Do I own the content?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">100%. Everything we write and build belongs to you.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">8. Multiple locations?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">We offer a "Multi-Location Scaling" add-on at a discounted rate.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">9. Who writes content?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">Hybrid approach. AI for research, senior humans for writing and editing.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="w-full text-left p-4 bg-white hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">10. How do we communicate?</h3>
+                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon"></i>
+                        </button>
+                        <div class="faq-answer bg-white px-4 pb-4">
+                            <p class="text-slate-600 text-sm">Slack for daily updates, Zoom for monthly strategy sessions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Calendly Section -->
+    <section id="contact" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-blue-900/20"></div>
+        <div class="max-w-6xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to Execute?</h2>
+            <p class="text-lg text-slate-300 mb-8">Book a time below to discuss your specific market needs.</p>
+            
+            <!-- Calendly Inline Widget -->
+            <!-- Note: Height adjusted for mobile to prevent double scrollbars -->
+            <div class="bg-white/5 backdrop-blur-sm p-2 sm:p-4 rounded-3xl border border-white/10 shadow-2xl overflow-hidden mx-auto w-full max-w-4xl">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/kalashnandal-ckdi?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:300px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12 text-center md:text-left">
+                <div class="col-span-2">
+                    <span class="text-xl font-bold text-white tracking-tight block mb-4">Tax-Tical <span class="text-blue-600">Brilliance</span></span>
+                    <p class="text-slate-500 text-sm mx-auto md:mx-0 max-w-sm">
+                        Precision digital marketing for businesses that demand ROI.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-blue-500">SEO & GEO Strategy</a></li>
+                        <li><a href="#" class="hover:text-blue-500">Content Marketing</a></li>
+                        <li><a href="#" class="hover:text-blue-500">Local GMB Growth</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-blue-500">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-500">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-600 text-sm text-center md:text-left mb-4 md:mb-0">&copy; 2026 Tax-Tical Brilliance.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-600 hover:text-white"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-slate-600 hover:text-white"><i class="fa-brands fa-twitter text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            } else {
+                menu.classList.add('open');
+            }
+        }
+
+        // Toggle FAQ Accordion
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            const isActive = parent.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If it wasn't active before, open it now
+            if (!isActive) {
+                parent.classList.add('active');
+            }
+        }
+    </script>
+
+    <!-- Calendly Badge Widget (Bottom Right) -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script type="text/javascript">
+        window.onload = function() { 
+            Calendly.initBadgeWidget({ 
+                url: 'https://calendly.com/kalashnandal-ckdi', 
+                text: 'Schedule time with me', 
+                color: '#0069ff', 
+                textColor: '#ffffff', 
+                branding: true 
+            }); 
+        }
+    </script>
+
+</body>
+</html>
