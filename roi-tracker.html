@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Tracker & Case Studies | Tax-tical Brilliance</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for ICAI Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ca-blue': '#1E3A8A', 
+                        'ca-green': '#15803D', 
+                        'ca-dark': '#0F172A',
+                        'accent-orange': '#ea580c',
+                        'alert-red': '#dc2626',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        .indian-border-top {
+            background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
+            height: 4px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(30, 58, 138, 0.05) 1px, transparent 1px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        .interactive-card { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+        .interactive-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(30, 58, 138, 0.12);
+        }
+
+        .dropdown-menu {
+            opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.2s ease;
+        }
+        .dropdown-container:hover .dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white font-sans pt-[4px]">
+
+    <div class="indian-border-top"></div>
+
+    <div class="bg-black text-slate-300 text-sm font-medium py-2.5 px-4 text-center z-50 relative border-b border-slate-800 tracking-wide">
+        <span class="animate-pulse inline-block w-2.5 h-2.5 bg-alert-red rounded-full mr-2 align-middle shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+        <strong class="text-white">REGULATORY NOTICE:</strong> The ICAI 13th Edition Code of Ethics came into effect on April 1, 2026.
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 group">
+                    <i class="fa-solid fa-chess-knight text-ca-blue text-3xl group-hover:text-ca-green transition transform group-hover:scale-110"></i>
+                    <div class="flex flex-col">
+                        <span class="text-xl sm:text-2xl font-serif font-black text-ca-dark leading-none tracking-tight">Tax-tical</span>
+                        <span class="text-sm font-bold text-ca-green uppercase tracking-widest leading-none mt-1">Brilliance</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="relative dropdown-container py-6">
+                        <a href="index.html#services" class="text-slate-600 hover:text-ca-blue font-semibold transition flex items-center gap-1 text-sm">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
+                        </a>
+                        <div class="dropdown-menu absolute top-[70px] left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-xl py-2 z-50">
+                            <a href="seo-services.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue">Authority SEO</a>
+                            <a href="ppc-management.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue">Performance PPC</a>
+                            <a href="local-seo.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue">Local Dominance</a>
+                            <a href="content-marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue">Tax Flashes</a>
+                        </div>
+                    </div>
+                    <a href="roi-tracker.html" class="text-ca-blue font-bold transition text-sm">ROI & Cases</a>
+                    <a href="resources.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Resources</a>
+                    <a href="about-us.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Our Story</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-ca-blue hover:bg-ca-dark text-white px-6 py-2.5 rounded text-sm font-bold transition shadow-md">
+                        Request Ethics Audit
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2 transition" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full z-50">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700">Home</a>
+                <a href="roi-tracker.html" class="block px-3 py-3 rounded-md text-sm font-bold text-ca-blue bg-blue-50 border-l-2 border-ca-blue">ROI & Cases</a>
+                <a href="resources.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700">Resources</a>
+                <a href="contact.html" class="block px-3 py-3 mt-4 text-center rounded-md text-sm font-bold text-white bg-ca-blue">Book Session</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 pb-12 lg:pt-24 lg:pb-20 bg-ca-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-ca-blue/40 via-ca-dark to-ca-dark z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="max-w-3xl mx-auto reveal">
+                <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold text-ca-green border border-slate-600 mb-6 bg-slate-800/50 uppercase tracking-wider">
+                    <i class="fa-solid fa-chart-line mr-2 text-ca-green"></i> Proven Execution
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
+                    We track P&L.<br><span class="text-slate-400">Not Vanity Metrics.</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    Chartered Accountants don't care about "impressions." They care about qualified B2B leads, closed retainers, and regulatory safety. Here is how our bifurcated strategy delivers measurable ROI.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 1: Local SEO -->
+    <section class="py-16 lg:py-24 bg-grid bg-slate-50 border-b border-slate-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-white border border-slate-200 text-slate-600 text-xs font-bold px-2.5 py-1 rounded shadow-sm">Case Study 01</span>
+                        <span class="text-ca-blue text-xs font-bold uppercase tracking-wider"><i class="fa-solid fa-map-location-dot mr-1"></i> Local Maps Dominance</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-4">Capturing the "Near Me" SME Market</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        <strong>The Client:</strong> A 3-Partner firm in Delhi NCR.<br>
+                        <strong>The Problem:</strong> Highly qualified, but zero visibility on Google Maps. Local startups were bypassing them for inferior, but better-marketed, accountants nearby.<br>
+                        <strong>The Execution:</strong> We deployed the <a href="index.html#pricing" class="text-ca-blue underline">Foundation Tier</a>. We corrected their NAPP consistency across 40 directories, injected compliant service taxonomy into their GMB profile, and established an ethical review pipeline.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
+                            <div class="text-3xl font-black text-ca-green mb-1">+314%</div>
+                            <div class="text-xs text-slate-500 font-medium">Increase in direct Maps phone calls (90 days)</div>
+                        </div>
+                        <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
+                            <div class="text-3xl font-black text-ca-blue mb-1">₹6.2L</div>
+                            <div class="text-xs text-slate-500 font-medium">New Annualized Revenue (ARR) from local search</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative reveal delay-200">
+                    <div class="absolute inset-0 bg-ca-blue/5 rounded-xl transform rotate-2"></div>
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-xl p-8 relative z-10 interactive-card">
+                        <h4 class="text-sm font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Client Dashboard Snippet</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-500">Ranking for "GST Consultant Near Me"</span>
+                                    <span class="font-bold text-ca-green">#2 (Map Pack)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-ca-green h-2 rounded-full" style="width: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-500">Ranking for "Company Registration Delhi"</span>
+                                    <span class="font-bold text-ca-blue">#3 (Map Pack)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-ca-blue h-2 rounded-full" style="width: 75%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 2: PPC Ads -->
+    <section class="py-16 lg:py-24 bg-white border-b border-slate-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="order-2 lg:order-1 relative reveal delay-100">
+                    <div class="absolute inset-0 bg-accent-orange/5 rounded-xl transform -rotate-2"></div>
+                    <div class="bg-ca-dark rounded-xl border border-slate-700 shadow-xl p-8 relative z-10 interactive-card">
+                        <h4 class="text-sm font-bold text-white mb-4 border-b border-slate-700 pb-2">Campaign Economics</h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex justify-between border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Monthly Ad Spend</span>
+                                <span class="text-white font-mono">₹40,000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Management Fee (15%)</span>
+                                <span class="text-white font-mono">₹10,000 (Min)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Total Investment</span>
+                                <span class="text-white font-mono">₹50,000</span>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <span class="text-accent-orange font-bold">New Retainer Value Generated</span>
+                                <span class="text-accent-orange font-bold font-mono">₹4,20,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold px-2.5 py-1 rounded shadow-sm">Case Study 02</span>
+                        <span class="text-accent-orange text-xs font-bold uppercase tracking-wider"><i class="fa-solid fa-bullseye mr-1"></i> Performance PPC</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-4">Leveraging the 2026 Push Rules</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        <strong>The Client:</strong> Boutique Corporate Advisory Firm, Bangalore.<br>
+                        <strong>The Problem:</strong> Wanted to scale their Virtual CFO and Due Diligence practices but were afraid of ICAI solicitation rules.<br>
+                        <strong>The Execution:</strong> We deployed hyper-targeted LinkedIn and Google Search ads specifically geofenced to tech-parks. Ad copy strictly adhered to our 50-point filter, completely avoiding audit solicitation while pushing non-exclusive advisory services.
+                    </p>
+                    <div class="inline-flex items-center gap-2 bg-green-50 text-ca-green border border-green-200 px-4 py-2 rounded text-sm font-bold shadow-sm">
+                        <i class="fa-solid fa-arrow-trend-up"></i> 8.4x Return on Ad Spend (ROAS)
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 3: Technical Tax Flashes -->
+    <section class="py-16 lg:py-24 bg-grid bg-slate-50 border-b border-slate-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-white border border-slate-200 text-slate-600 text-xs font-bold px-2.5 py-1 rounded shadow-sm">Case Study 03</span>
+                        <span class="text-ca-blue text-xs font-bold uppercase tracking-wider"><i class="fa-solid fa-newspaper mr-1"></i> Technical Content</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-4">The "Google Discover" Traffic Spike</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        <strong>The Client:</strong> Mid-Sized Practice, Mumbai.<br>
+                        <strong>The Problem:</strong> Getting zero B2B traffic from a generic blog written by a standard agency.<br>
+                        <strong>The Execution:</strong> Upgraded to the <a href="index.html#pricing" class="text-ca-blue underline">Growth Engine Tier</a>. We tracked a major CBDT notification regarding startup valuations. Our finance editors published a highly technical, schema-optimized breakdown on the client's site within 4 hours of the notification release.
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Google instantly picked up the "fresh, authoritative" content and pushed it into the Google Discover feeds of thousands of finance professionals.
+                    </p>
+                    <div class="bg-white border border-slate-200 p-4 rounded-lg shadow-sm w-max">
+                        <div class="text-3xl font-black text-slate-900 mb-1">12,400+</div>
+                        <div class="text-xs text-slate-500 font-medium">B2B Pageviews in 48 Hours from a single Tax Flash</div>
+                    </div>
+                </div>
+                
+                <div class="relative reveal delay-200">
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-xl p-2 relative z-10 interactive-card">
+                        <div class="bg-slate-100 rounded-lg p-6 text-center border border-slate-200 border-dashed">
+                            <i class="fa-solid fa-chart-area text-6xl text-slate-300 mb-4 block"></i>
+                            <h4 class="font-bold text-slate-700">Analytics Traffic Graph</h4>
+                            <p class="text-xs text-slate-500 mt-2">Visualizing a 4,000% baseline traffic spike immediately following rapid-response publication.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-ca-dark text-white text-center relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 relative z-10 reveal">
+            <h2 class="text-3xl font-serif font-bold mb-4">Ready for your own case study?</h2>
+            <p class="text-slate-400 text-sm mb-8">Stop guessing. Start executing a compliant, data-driven growth strategy today.</p>
+            <a href="contact.html" class="inline-block px-8 py-3.5 bg-ca-blue hover:bg-blue-600 text-white font-bold rounded shadow-lg transition transform hover:-translate-y-1">Book Your Strategy Session</a>
+        </div>
+    </section>
+
+    <!-- Footer (Standard) -->
+    <footer class="bg-ca-dark border-t border-slate-800 pt-12 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12 text-center md:text-left">
+                <div class="col-span-2">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <i class="fa-solid fa-chess-knight text-slate-400 text-2xl"></i>
+                        <span class="text-xl font-serif font-bold text-white tracking-tight">Tax-tical Brilliance</span>
+                    </div>
+                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-sm">Precision digital growth for Indian Chartered Accountants, fully compliant with the ICAI 13th Edition Code of Ethics.</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center md:text-left text-xs text-slate-500">
+                &copy; 2026 Tax-tical Brilliance. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); } 
+            else { menu.classList.add('hidden'); }
+        }
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+    </script>
+</body>
+</html>
+
