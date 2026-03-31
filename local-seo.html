@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Maps Dominance for CAs | Tax-tical Brilliance</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for ICAI Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ca-blue': '#1E3A8A', 
+                        'ca-green': '#15803D', 
+                        'ca-dark': '#0F172A',
+                        'accent-orange': '#ea580c',
+                        'accent-green': '#15803d',
+                        'alert-red': '#dc2626',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { scroll-behavior: smooth; }
+        
+        /* Subtle Indian Flag Top Border */
+        .indian-border-top {
+            background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
+            height: 4px;
+            width: 100%;
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(30, 58, 138, 0.05) 1px, transparent 1px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -5px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Dropdown transition */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease;
+        }
+        .dropdown-container:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white font-sans">
+
+    <!-- Subtle Patriotic Border -->
+    <div class="indian-border-top"></div>
+
+    <!-- Regulatory Alert Banner -->
+    <div class="bg-black text-slate-300 text-sm font-medium py-2.5 px-4 text-center z-50 relative border-b border-slate-800 tracking-wide">
+        <span class="animate-pulse inline-block w-2.5 h-2.5 bg-red-600 rounded-full mr-2 align-middle shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+        <strong class="text-white">URGENT UPDATE:</strong> The ICAI 13th Edition Code of Ethics came into effect on April 1, 2026. "Push Technology" is now permitted for non-exclusive services. <a href="compliance-code.html" class="underline ml-2 hover:text-white transition">View Guidelines</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 group">
+                    <i class="fa-solid fa-chess-knight text-ca-blue text-3xl group-hover:text-ca-green transition"></i>
+                    <div class="flex flex-col">
+                        <span class="text-xl sm:text-2xl font-serif font-black text-ca-dark leading-none tracking-tight">Tax-tical</span>
+                        <span class="text-sm font-bold text-ca-green uppercase tracking-widest leading-none mt-1">Brilliance</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Dropdown for Services -->
+                    <div class="relative dropdown-container py-6">
+                        <a href="index.html#services" class="text-ca-blue font-bold transition flex items-center gap-1 text-sm">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
+                        </a>
+                        <div class="dropdown-menu absolute top-[70px] left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-xl py-2 z-50">
+                            <a href="seo-services.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue font-medium">Authority SEO for CAs</a>
+                            <a href="ppc-management.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue font-medium">Performance PPC (Ads)</a>
+                            <a href="local-seo.html" class="block px-4 py-2 text-sm text-ca-blue bg-blue-50 font-bold border-l-2 border-ca-blue">Local GMB Dominance</a>
+                            <a href="content-marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue font-medium">Technical Tax Flashes</a>
+                        </div>
+                    </div>
+                    
+                    <a href="compliance-code.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">The 2026 Code</a>
+                    <a href="index.html#pricing" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Packages</a>
+                    <a href="index.html#faq" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">FAQ</a>
+                </div>
+                
+                <!-- Desktop CTA -->
+                <div class="hidden md:block">
+                    <a href="index.html#contact" class="bg-ca-blue hover:bg-ca-dark text-white px-6 py-2.5 rounded text-sm font-bold transition shadow-md">
+                        Request Ethics Audit
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full max-h-[80vh] overflow-y-auto z-50">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+                <a href="seo-services.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Authority SEO</a>
+                <a href="ppc-management.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Performance PPC</a>
+                <a href="local-seo.html" class="block px-3 py-3 rounded-md text-sm font-bold text-ca-blue bg-blue-50 border-l-2 border-ca-blue">Local GMB Dominance</a>
+                <a href="compliance-code.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">The 2026 Code</a>
+                <a href="index.html#pricing" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header (Hero) -->
+    <section class="pt-16 pb-12 lg:pt-24 lg:pb-20 bg-ca-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-ca-green rounded-full blur-[150px] opacity-20 z-0"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-ca-blue rounded-full blur-[150px] opacity-30 z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold text-slate-300 border border-slate-600 mb-6 bg-slate-800/50 uppercase tracking-wider">
+                    <i class="fa-solid fa-map-location-dot mr-2 text-ca-green"></i> Local Search Optimization
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
+                    Own the "Near Me" <br>Search Results.
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-2xl">
+                    80% of routine compliance, GST, and incorporation queries start with a localized search. We optimize your Google Business Profile to ensure your firm dominates the top 3 Map Pack results in your jurisdiction.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#strategy" class="px-6 py-3 bg-ca-green text-white font-bold rounded hover:bg-green-700 transition text-center">See Local Strategy</a>
+                    <a href="index.html#pricing" class="px-6 py-3 border border-slate-600 text-slate-300 font-bold rounded hover:bg-slate-800 hover:text-white transition text-center">View Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="py-16 lg:py-24 bg-grid bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-ca-blue uppercase tracking-widest mb-3">The Local Visibility Gap</h2>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-6">Invisible to the SMEs Next Door</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm">
+                        SME owners, startup founders, and local business directors rarely search for "Top CA Firm India." They search for <em>"GST consultant in Koramangala"</em> or <em>"Company registration near me."</em>
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm">
+                        If your Google My Business (GMB) profile is unverified, lacks specific service taxonomy, or has no recent review velocity, Google's local algorithm bypasses you completely—feeding high-intent local leads directly to competing practices on the same street.
+                    </p>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="flex items-center gap-4 mb-2">
+                            <div class="w-12 h-12 bg-blue-50 text-ca-blue rounded flex items-center justify-center font-bold text-xl">
+                                46%
+                            </div>
+                            <h4 class="font-bold text-slate-900">Of all Google searches have local intent.</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 ml-16">Capturing the "Google Map Pack" (the top 3 local results) is the fastest way to drive inbound phone calls to your partners' desks.</p>
+                    </div>
+                </div>
+                
+                <!-- Mockup/Visual Representation -->
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-ca-blue/5 rounded-xl transform rotate-3"></div>
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-xl p-6 relative z-10">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-4">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                                <span class="text-sm font-medium text-slate-700 border-b border-slate-800">CA for startup registration near me</span>
+                            </div>
+                            <i class="fa-solid fa-microphone text-blue-500"></i>
+                        </div>
+                        
+                        <!-- Map Pack UI Mockup -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-3 bg-blue-50/50 border border-blue-100 rounded-lg">
+                                <i class="fa-solid fa-location-dot text-alert-red mt-1"></i>
+                                <div>
+                                    <h5 class="text-sm font-bold text-ca-blue">Your Firm Name & Associates</h5>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500 mt-1">
+                                        <span class="text-accent-orange font-bold">5.0</span>
+                                        <div class="text-accent-orange text-[10px]">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>(42) · Chartered Accountant</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1"><span class="text-ca-green font-semibold">Open</span> · Closes 7 PM</p>
+                                    <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-check text-ca-green mr-1"></i> Provides: Startup Advisory, Incorporation</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4 p-3 opacity-60 grayscale filter">
+                                <i class="fa-solid fa-location-dot text-slate-400 mt-1"></i>
+                                <div>
+                                    <h5 class="text-sm font-bold text-slate-700">Generic Competitor CA</h5>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500 mt-1">
+                                        <span class="text-slate-400 font-bold">3.2</span>
+                                        <span>(4) · Accounting Firm</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1">No services listed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy / Execution Section -->
+    <section id="strategy" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-sm font-bold text-ca-green uppercase tracking-widest mb-3">The Local Engine</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4">How We Capture the Map Pack</h3>
+                <p class="text-slate-600">Local SEO is an exact science. We meticulously optimize your firm's digital entity to signal absolute local relevance to Google's crawlers.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tactic 1 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl feature-card transition">
+                    <div class="w-12 h-12 bg-white border border-slate-200 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-xl shadow-sm">
+                        <i class="fa-solid fa-address-card"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-3 font-serif">NAPP Consistency</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        We audit and synchronize your firm's <strong>Name, Address, Phone, and Professional Credentials</strong> across 50+ tier-1 business directories. Any discrepancy in address formats across the web confuses Google and drops your local ranking.
+                    </p>
+                </div>
+
+                <!-- Tactic 2 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl feature-card transition">
+                    <div class="w-12 h-12 bg-white border border-slate-200 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-xl shadow-sm">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-3 font-serif">Service Taxonomy</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        We completely rebuild your GMB services menu. Instead of just listing "Tax Services," we inject localized, compliant sub-categories like "GST Registration in [City]" and "ROC Filing," creating direct matches for specific client searches.
+                    </p>
+                </div>
+
+                <!-- Tactic 3 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl feature-card transition">
+                    <div class="w-12 h-12 bg-white border border-slate-200 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-xl shadow-sm">
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-3 font-serif">Ethical Review Velocity</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Google heavily weights review frequency. We implement compliant, automated systems to request reviews from satisfied consultancy clients (adhering to ICAI non-solicitation rules), steadily building your local "Trust Score".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Location Callout -->
+    <section class="py-16 bg-ca-dark text-white border-y border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h3 class="text-2xl md:text-3xl font-serif font-bold mb-4">Managing Multiple Branch Offices?</h3>
+            <p class="text-slate-400 text-sm mb-8 max-w-2xl mx-auto leading-relaxed">
+                Firms with pan-India presence require complex local architectures to prevent branch profiles from cannibalizing each other in search. Our <strong>Elite Practice</strong> tier includes Hyper-Local Multi-Location mapping, dedicating specific landing pages and independent GMB optimizations to every physical partner office.
+            </p>
+            <a href="index.html#pricing" class="inline-block px-8 py-3 bg-ca-green hover:bg-green-600 text-white font-bold rounded transition shadow-lg text-sm">View Elite Tier Pricing</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ca-dark border-t-4 border-ca-blue pt-12 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10 mb-12 text-center md:text-left">
+                <div class="col-span-2">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <i class="fa-solid fa-chess-knight text-slate-400 text-2xl"></i>
+                        <span class="text-xl font-serif font-bold text-white tracking-tight">Tax-tical Brilliance</span>
+                    </div>
+                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-sm leading-relaxed">
+                        Precision digital growth for Indian Chartered Accountants, fully compliant with the ICAI 13th Edition Code of Ethics. We turn regulatory changes into competitive advantages.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 tracking-wider uppercase text-[10px]">Our Services</h4>
+                    <ul class="space-y-2 text-slate-400 text-xs">
+                        <li><a href="seo-services.html" class="hover:text-white transition">Authority SEO Suites</a></li>
+                        <li><a href="ppc-management.html" class="hover:text-white transition">PPC Performance Marketing</a></li>
+                        <li><a href="local-seo.html" class="text-ca-green transition">Local Maps Dominance</a></li>
+                        <li><a href="content-marketing.html" class="hover:text-white transition">Technical Tax Content</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 tracking-wider uppercase text-[10px]">Company Info</h4>
+                    <ul class="space-y-2 text-slate-400 text-xs">
+                        <li><a href="about-us.html" class="hover:text-white transition">Why Us / About</a></li>
+                        <li><a href="index.html#pricing" class="hover:text-white transition">Pricing & ROI</a></li>
+                        <li><a href="compliance-code.html" class="hover:text-white transition">The 2026 Code Manifesto</a></li>
+                        <li><a href="index.html#contact" class="hover:text-white transition">Contact & Booking</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-xs text-center md:text-left mb-4 md:mb-0">
+                    &copy; 2026 Tax-tical Brilliance. All rights reserved. <br>
+                    <span class="opacity-50 mt-1 block">Disclaimer: This site is not affiliated with the Institute of Chartered Accountants of India.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
+
