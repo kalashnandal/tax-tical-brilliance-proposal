@@ -84,14 +84,6 @@
         @media (max-width: 1024px) { .blog-card { flex: 0 0 calc(50% - 1rem); } }
         @media (max-width: 640px) { .blog-card { flex: 0 0 100%; margin-right: 0; } }
         .slider-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        
-        /* FAQ Accordion Styles */
-        .faq-answer {
-            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.4s ease-out; opacity: 0;
-        }
-        .faq-item.active .faq-answer { max-height: 600px; opacity: 1; }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); color: #1E3A8A; }
 
         /* Calculator Styles */
         input[type=range] { -webkit-appearance: none; background: transparent; }
@@ -144,6 +136,7 @@
                             <a href="content-marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue transition">Technical Tax Flashes</a>
                         </div>
                     </div>
+                    
                     <a href="roi-tracker.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">ROI Tracker</a>
                     <a href="resources.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Resources</a>
                     <a href="blog.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Insights</a>
@@ -152,7 +145,7 @@
                 </div>
                 
                 <!-- Desktop CTA -->
-                <div class="hidden lg:block">
+                <div class="hidden md:block">
                     <a href="contact.html" class="bg-ca-blue hover:bg-ca-dark text-white px-6 py-2.5 rounded text-sm font-bold transition shadow-md transform hover:-translate-y-0.5 inline-block">
                         Book Session
                     </a>
@@ -458,38 +451,38 @@
             <div class="grid md:grid-cols-2 gap-x-10 gap-y-4">
                 <!-- Left Column -->
                 <div class="space-y-3">
-                    <div class="faq-item border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm reveal">
-                        <button class="w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal">
+                        <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">1. Does the ICAI really allow SEO and Ads?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon text-xs"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
                             <div class="px-4 pb-4">
-                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3 mt-1">Yes. The 13th Edition Code of Ethics distinctly clarifies boundaries. Informational websites for organic discovery (SEO) are permitted. "Push technology" (PPC ads) is now explicitly permitted for <strong>non-exclusive services</strong> (e.g., consultancy, incorporation), provided content is factual and devoid of direct solicitation for audit work.</p>
+                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">Yes. The 13th Edition Code of Ethics distinctly clarifies boundaries. Informational websites for organic discovery (SEO) are permitted. "Push technology" (PPC ads) is now explicitly permitted for <strong>non-exclusive services</strong> (e.g., consultancy, incorporation), provided content is factual and devoid of direct solicitation for audit work.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="faq-item border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm reveal delay-100">
-                        <button class="w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100">
+                        <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">2. Why are the On-Page limits strictly capped?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon text-xs"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
                             <div class="px-4 pb-4">
-                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3 mt-1">In the financial sector, compliance is paramount. We do not use automated tools to spin hundreds of low-quality pages. We manually review code, rewrite copy to meet Google's strict YMYL (Your Money or Your Life) standards, and run it through our 50-point ICAI Ethics Filter. This manual precision requires significant expert hours.</p>
+                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">In the financial sector, compliance is paramount. We do not use automated tools to spin hundreds of low-quality pages. We manually review code, rewrite copy to meet Google's strict YMYL (Your Money or Your Life) standards, and run it through our 50-point ICAI Ethics Filter. This manual precision requires significant expert hours.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="faq-item border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm reveal delay-200">
-                        <button class="w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200">
+                        <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">3. How long does it realistically take to see an ROI?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon text-xs"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
                             <div class="px-4 pb-4">
-                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3 mt-1">If you opt for the PPC Add-on, lead generation for non-exclusive services begins within <strong>7 to 10 days</strong>. For organic Authority SEO (targeting high-ticket B2B relationships), you should expect a compounding build-up over <strong>3 to 6 months</strong> before seeing a major shift in Page 1 rankings and inbound inquiries.</p>
+                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">If you opt for the PPC Add-on, lead generation for non-exclusive services begins within <strong>7 to 10 days</strong>. For organic Authority SEO (targeting high-ticket B2B relationships), you should expect a compounding build-up over <strong>3 to 6 months</strong> before seeing a major shift in Page 1 rankings and inbound inquiries.</p>
                             </div>
                         </div>
                     </div>
@@ -497,38 +490,38 @@
 
                 <!-- Right Column -->
                 <div class="space-y-3">
-                    <div class="faq-item border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm reveal">
-                        <button class="w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal">
+                        <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">4. Who actually writes the Technical Tax Flashes?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon text-xs"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
                             <div class="px-4 pb-4">
-                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3 mt-1">We employ a specialized hybrid model. Custom AI scrapers monitor the CBDT, CBIC, and MCA portals daily. Once a notification drops, our senior finance editors (who understand Indian taxation) draft, structure, and verify the analysis to ensure absolute technical accuracy before publishing.</p>
+                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">We employ a specialized hybrid model. Custom AI scrapers monitor the CBDT, CBIC, and MCA portals daily. Once a notification drops, our senior finance editors (who understand Indian taxation) draft, structure, and verify the analysis to ensure absolute technical accuracy before publishing.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="faq-item border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm reveal delay-100">
-                        <button class="w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100">
+                        <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">5. Can we run direct Google Ads for Statutory Audit?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon text-xs"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
                             <div class="px-4 pb-4">
-                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3 mt-1"><strong>Absolutely not.</strong> Direct solicitation for audit and assurance services remains strictly prohibited. The strategic workaround is running targeted Ads for permitted advisory, due diligence, and bookkeeping services. Excelling in these engagements naturally positions your firm for statutory audits down the line.</p>
+                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3"><strong>Absolutely not.</strong> Direct solicitation for audit and assurance services remains strictly prohibited. The strategic workaround is running targeted Ads for permitted advisory, due diligence, and bookkeeping services. Excelling in these engagements naturally positions your firm for statutory audits down the line.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="faq-item border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm reveal delay-200">
-                        <button class="w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition" onclick="toggleFaq(this)">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200">
+                        <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">6. Do you require long-term lock-in contracts?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 faq-icon text-xs"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
                             <div class="px-4 pb-4">
-                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3 mt-1">No. We operate strictly on a professional <strong>month-to-month retainer</strong>. We retain clients based on transparent reporting, consistent execution, and measurable ROI, rather than through restrictive legal agreements.</p>
+                                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">No. We operate strictly on a professional <strong>month-to-month retainer</strong>. We retain clients based on transparent reporting, consistent execution, and measurable ROI, rather than through restrictive legal agreements.</p>
                             </div>
                         </div>
                     </div>
@@ -592,7 +585,7 @@
     </section>
 
     <!-- DYNAMIC INSIGHTS SLIDER (AT THE BOTTOM OF THE PAGE) -->
-    <section class="py-16 sm:py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
+    <section class="py-16 sm:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-10 reveal">
                 <div>
@@ -730,19 +723,41 @@
             menu.classList.toggle('hidden');
         }
 
-        // Bulletproof FAQ toggle
-        function toggleFaq(buttonElement) {
-            const faqItem = buttonElement.closest('.faq-item');
-            const isActive = faqItem.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
+        // Bulletproof Javascript FAQ Logic using scrollHeight
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Close others
+                document.querySelectorAll('.faq-content').forEach(otherContent => {
+                    if (otherContent !== content) {
+                        otherContent.style.maxHeight = null;
+                        otherContent.classList.remove('opacity-100');
+                        otherContent.classList.add('opacity-0');
+                    }
+                });
+                
+                document.querySelectorAll('.faq-btn i').forEach(otherIcon => {
+                    if (otherIcon !== icon) {
+                        otherIcon.classList.remove('rotate-180', 'text-ca-blue');
+                    }
+                });
+
+                // Toggle current
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.classList.remove('opacity-100');
+                    content.classList.add('opacity-0');
+                    icon.classList.remove('rotate-180', 'text-ca-blue');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.classList.remove('opacity-0');
+                    content.classList.add('opacity-100');
+                    icon.classList.add('rotate-180', 'text-ca-blue');
+                }
             });
-            
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        }
+        });
 
         // Scroll Reveal
         function revealOnScroll() {
@@ -864,6 +879,5 @@
     </script>
 </body>
 </html>
-
 
 
