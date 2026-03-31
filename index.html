@@ -510,8 +510,25 @@
                         </div>
                     </div>
                     <div class="bg-slate-800 rounded-lg p-6 flex flex-col justify-center space-y-6 border border-slate-700">
-                        <div class="flex justify-between text-sm"><span>Status Quo Rev</span><span id="currentRev" class="font-mono">₹2.5L</span></div>
-                        <div class="flex justify-between font-bold text-ca-green text-lg"><span>Tax-tical Revenue</span><span id="projectedRev" class="font-mono">₹12.5L</span></div>
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                            <div>
+                                <span class="block text-slate-400 text-sm">Status Quo Revenue</span>
+                                <span class="text-[10px] text-slate-500">(0.5% conversion)</span>
+                            </div>
+                            <span id="currentRev" class="text-white font-mono font-bold text-sm">₹2,50,000</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2">
+                            <div>
+                                <span class="block text-white text-sm font-bold">Tax-tical Revenue</span>
+                                <span class="text-[10px] text-slate-400">(Optimized 2.5% conversion)</span>
+                            </div>
+                            <span id="projectedRev" class="text-ca-green font-mono font-bold text-xl">₹12,50,000</span>
+                        </div>
+                        
+                        <div class="bg-slate-700/50 rounded p-4 text-center border border-slate-600 mt-2">
+                            <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Found Opportunity (Yearly)</p>
+                            <p id="monthlyGain" class="text-2xl font-bold text-white">+₹10,00,000</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -640,9 +657,10 @@
         }
 
         function toggleFaq(element) {
-            const isActive = element.classList.contains('active');
+            const parent = element.parentElement;
+            const isActive = parent.classList.contains('active');
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            if (!isActive) element.classList.add('active');
+            if (!isActive) parent.classList.add('active');
         }
 
         // Scroll Reveal
@@ -663,17 +681,38 @@
         const trafficDisplay = document.getElementById('trafficValue');
         const currentRevDisplay = document.getElementById('currentRev');
         const projectedRevDisplay = document.getElementById('projectedRev');
+        const gainDisplay = document.getElementById('monthlyGain');
+
+        function formatINR(number) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 0
+            }).format(number);
+        }
 
         function calculateROI() {
             const traffic = parseInt(slider.value);
             const deal = parseInt(dealInput.value) || 0;
+            
             trafficDisplay.innerText = traffic.toLocaleString();
-            const cur = traffic * 0.005 * deal * 12;
-            const pro = traffic * 0.025 * deal * 12;
-            currentRevDisplay.innerText = "₹" + (cur/100000).toFixed(1) + "L";
-            projectedRevDisplay.innerText = "₹" + (pro/100000).toFixed(1) + "L";
+
+            const currentConv = 0.005; // 0.5% 
+            const newConv = 0.025; // 2.5%
+
+            const currentRev = traffic * currentConv * deal * 12; 
+            const newRev = traffic * newConv * deal * 12; 
+            const gain = newRev - currentRev;
+
+            currentRevDisplay.innerText = formatINR(currentRev);
+            projectedRevDisplay.innerText = formatINR(newRev);
+            if (gainDisplay) gainDisplay.innerText = "+" + formatINR(gain);
         }
-        if(slider && dealInput) { slider.addEventListener('input', calculateROI); dealInput.addEventListener('input', calculateROI); calculateROI(); }
+        if(slider && dealInput) { 
+            slider.addEventListener('input', calculateROI); 
+            dealInput.addEventListener('input', calculateROI); 
+            calculateROI(); 
+        }
 
         // Blog Slider Auto-Play Logic
         document.addEventListener('DOMContentLoaded', () => {
@@ -690,6 +729,7 @@
             const update = () => {
                 const perView = getPerView();
                 const card = track.children[0];
+                if (!card) return;
                 const gap = 32; // 2rem gap
                 track.style.transform = `translateX(-${idx * (card.offsetWidth + gap)}px)`;
                 prev.disabled = idx === 0;
@@ -733,9 +773,13 @@
                 update();
             });
             
-            update();
-            startAutoPlay();
+            // Ensure layout renders before taking offsetWidth
+            setTimeout(() => {
+                update();
+                startAutoPlay();
+            }, 100);
         });
     </script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
