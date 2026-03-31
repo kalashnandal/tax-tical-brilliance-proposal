@@ -133,9 +133,8 @@
                 
                 <!-- Desktop Links -->
                 <div class="hidden lg:flex items-center space-x-7">
-                    <!-- Dropdown for Services -->
                     <div class="relative dropdown-container py-6">
-                        <a href="index.html#services" class="text-slate-600 hover:text-ca-blue font-semibold transition flex items-center gap-1 text-sm">
+                        <a href="#services" class="text-slate-600 hover:text-ca-blue font-semibold transition flex items-center gap-1 text-sm">
                             Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
                         </a>
                         <div class="dropdown-menu absolute top-[70px] left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-xl py-2 z-50">
@@ -145,7 +144,6 @@
                             <a href="content-marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue transition">Technical Tax Flashes</a>
                         </div>
                     </div>
-                    
                     <a href="roi-tracker.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">ROI Tracker</a>
                     <a href="resources.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Resources</a>
                     <a href="blog.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Insights</a>
@@ -162,7 +160,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2" onclick="toggleMobileMenu()">
+                    <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2 transition" onclick="toggleMobileMenu()">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -172,7 +170,7 @@
         <!-- CORRECTED MOBILE MENU DROPDOWN -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full max-h-[80vh] overflow-y-auto z-50">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-bold text-ca-blue bg-blue-50 border-l-2 border-ca-blue">Home</a>
                 <div class="py-2 border-y border-slate-100 my-2">
                     <p class="px-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Our Services</p>
                     <a href="seo-services.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-ca-blue hover:bg-slate-50 pl-6">Authority SEO</a>
@@ -209,8 +207,8 @@
                     As of April 1, 2026, Indian CA firms can legally use digital push marketing for non-exclusive services. We help you scale your practice aggressively while keeping your license unconditionally safe.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="contact.html" class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold rounded text-white bg-ca-blue shadow-lg hover:bg-ca-dark transition">
-                        Start Growth Engine
+                    <a href="#pricing" class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold rounded text-white bg-ca-blue shadow-lg hover:bg-ca-dark transition">
+                        View Growth Plans
                     </a>
                     <a href="roi-tracker.html" class="inline-flex justify-center items-center px-8 py-3.5 border border-slate-300 text-base font-bold rounded text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm">
                         View ROI Case Studies
@@ -286,6 +284,10 @@
                     </a>
                 </div>
             </div>
+            
+            <div class="text-center mt-10 reveal">
+                <a href="resources.html" class="inline-block px-6 py-3 border border-slate-300 text-slate-700 text-sm font-bold rounded hover:bg-white transition shadow-sm">Download Allowed Services Matrix</a>
+            </div>
         </div>
     </section>
 
@@ -327,6 +329,10 @@
                                 <div class="p-4 text-red-800 bg-red-50/50 border-r line-through">"Guaranteed GST Refund"</div>
                                 <div class="p-4 text-ca-green font-semibold">"Assistance with GST Refunds"</div>
                             </div>
+                            <div class="grid grid-cols-2 border-b">
+                                <div class="p-4 text-red-800 bg-red-50/50 border-r line-through">"Cheapest firm in Mumbai"</div>
+                                <div class="p-4 text-ca-green font-semibold">"Advisory Services in Mumbai"</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -347,7 +353,7 @@
             <div class="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16">
                 <!-- Foundation -->
                 <div class="bg-white border border-slate-200 rounded-xl p-8 flex flex-col shadow-sm transition hover:border-slate-300 reveal">
-                    <span class="text-slate-500 text-[10px] font-bold uppercase mb-2">The Foundation</span>
+                    <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">The Foundation</span>
                     <h3 class="text-xl font-serif font-bold text-slate-900">Local Presence</h3>
                     <div class="my-5 pb-5 border-b border-slate-100">
                         <span class="text-3xl font-extrabold text-slate-900">₹15,000</span><span class="text-slate-500 text-sm">/mo</span>
@@ -355,6 +361,7 @@
                     <ul class="space-y-4 mb-8 flex-1 text-sm text-slate-600">
                         <li class="flex items-start"><i class="fa-solid fa-building mt-1 mr-3 text-slate-400 w-4 text-center"></i>1 GMB Post / Month</li>
                         <li class="flex items-start"><i class="fa-solid fa-file-contract mt-1 mr-3 text-slate-400 w-4 text-center"></i>1 Initial Content Guide</li>
+                        <li class="flex items-start"><i class="fa-solid fa-map-location-dot mt-1 mr-3 text-slate-400 w-4 text-center"></i>Basic Map Verification</li>
                         <li class="flex items-start"><i class="fa-solid fa-shield-halved mt-1 mr-3 text-slate-400 w-4 text-center"></i>Ethics Audit</li>
                     </ul>
                     <a href="contact.html" class="mt-auto block w-full py-2.5 bg-slate-50 border border-slate-200 font-bold rounded text-center text-slate-700 hover:bg-slate-100 text-sm transition">Select Plan</a>
@@ -362,33 +369,35 @@
                 
                 <!-- Growth Engine -->
                 <div class="bg-white border-2 border-ca-blue shadow-lg rounded-xl p-8 flex flex-col relative z-10 transform lg:-translate-y-2 reveal delay-100">
-                    <div class="absolute top-0 right-0 bg-ca-blue text-white text-[9px] font-bold px-3 py-1 rounded-bl uppercase">Most Popular</div>
-                    <span class="text-ca-blue text-[10px] font-bold uppercase mb-2">The Growth Engine</span>
+                    <div class="absolute top-0 right-0 bg-ca-blue text-white text-[9px] font-bold px-3 py-1 rounded-bl uppercase tracking-widest">Most Popular</div>
+                    <span class="text-ca-blue text-[10px] font-bold uppercase tracking-widest mb-2">The Growth Engine</span>
                     <h3 class="text-xl font-serif font-bold text-slate-900">Niche Dominance</h3>
                     <div class="my-5 pb-5 border-b border-slate-100">
                         <span class="text-3xl font-extrabold text-slate-900">₹45,000</span><span class="text-slate-500 text-sm">/mo</span>
                     </div>
                     <ul class="space-y-4 mb-8 flex-1 text-sm text-slate-700">
-                        <li class="flex items-start"><i class="fa-solid fa-magnifying-glass-chart mt-1 mr-3 text-ca-blue w-4 text-center"></i>Up to 5 Service Pages</li>
-                        <li class="flex items-start"><i class="fa-solid fa-file-invoice mt-1 mr-3 text-ca-blue w-4 text-center"></i>4 Tax Flashes / Month</li>
+                        <li class="flex items-start"><i class="fa-solid fa-magnifying-glass-chart mt-1 mr-3 text-ca-blue w-4 text-center"></i><span class="font-bold">Up to 5 Service Pages</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-file-invoice mt-1 mr-3 text-ca-blue w-4 text-center"></i><span class="font-bold">4 Tax Flashes / Month</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-building-user mt-1 mr-3 text-ca-blue w-4 text-center"></i>Weekly Local Updates</li>
                         <li class="flex items-start"><i class="fa-solid fa-scale-balanced mt-1 mr-3 text-ca-blue w-4 text-center"></i>Manual Copy Review</li>
                     </ul>
-                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-ca-blue text-white font-bold rounded text-center text-sm shadow-md">Start Engine</a>
+                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-ca-blue text-white font-bold rounded text-center text-sm shadow-md hover:bg-ca-dark transition">Start Engine</a>
                 </div>
 
                 <!-- Elite -->
                 <div class="bg-ca-dark text-white border border-slate-700 rounded-xl p-8 flex flex-col shadow-md reveal delay-200">
-                    <span class="text-slate-400 text-[10px] font-bold uppercase mb-2">The Elite Practice</span>
+                    <span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-2">The Elite Practice</span>
                     <h3 class="text-xl font-serif font-bold text-white">National Authority</h3>
                     <div class="my-5 pb-5 border-b border-slate-700">
                         <span class="text-3xl font-extrabold text-white">₹1.25L</span><span class="text-slate-400 text-sm">/mo</span>
                     </div>
                     <ul class="space-y-4 mb-8 flex-1 text-sm text-slate-300">
-                        <li class="flex items-start"><i class="fa-solid fa-magnifying-glass-chart mt-1 mr-3 text-ca-green w-4 text-center"></i>Up to 15 Service Pages</li>
-                        <li class="flex items-start"><i class="fa-solid fa-file-invoice mt-1 mr-3 text-ca-green w-4 text-center"></i>20 Tax Flashes / Month</li>
+                        <li class="flex items-start"><i class="fa-solid fa-magnifying-glass-chart mt-1 mr-3 text-ca-green w-4 text-center"></i><span class="font-bold text-white">Up to 15 Service Pages</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-file-invoice mt-1 mr-3 text-ca-green w-4 text-center"></i><span class="font-bold text-white">20 Tax Flashes / Month</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-map-location-dot mt-1 mr-3 text-ca-green w-4 text-center"></i>Daily Map Management</li>
                         <li class="flex items-start"><i class="fa-solid fa-shield-halved mt-1 mr-3 text-ca-green w-4 text-center"></i>50-Point Partner Filter</li>
                     </ul>
-                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-slate-800 border border-slate-600 text-white font-bold rounded text-center text-sm">Apply for Elite</a>
+                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-slate-800 border border-slate-600 text-white font-bold rounded text-center text-sm hover:bg-slate-700 transition">Apply for Elite</a>
                 </div>
             </div>
             
@@ -400,20 +409,44 @@
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-sm pricing-table">
                         <thead class="bg-white border-b">
-                            <tr><th class="w-1/4">Feature</th><th class="text-center w-1/4">Foundation</th><th class="text-center w-1/4">Growth</th><th class="text-center w-1/4">Elite</th></tr>
+                            <tr><th class="w-1/4">Feature</th><th class="text-center w-1/4">Foundation</th><th class="text-center w-1/4">Growth Engine</th><th class="text-center w-1/4">Elite Practice</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>SEO Service Pages</td><td class="text-center">-</td><td class="text-center font-bold">5 Pages</td><td class="text-center font-bold">15 Pages</td></tr>
+                            <tr><td>SEO Service Pages</td><td class="text-center text-slate-400">-</td><td class="text-center font-bold">5 Pages</td><td class="text-center font-bold">15 Pages</td></tr>
                             <tr><td>Technical Tax Flashes</td><td class="text-center">1/mo</td><td class="text-center font-bold">4/mo</td><td class="text-center font-bold">20/mo</td></tr>
+                            <tr><td>Google Business Profile</td><td class="text-center">1 Update / mo</td><td class="text-center">Weekly Updates</td><td class="text-center font-bold">Daily Mgmt</td></tr>
+                            <tr><td>Map Pack Strategy</td><td class="text-center">Basic Setup</td><td class="text-center">City-Level Push</td><td class="text-center font-bold">Multi-Location</td></tr>
                             <tr><td>Analytics Reporting</td><td class="text-center">Monthly</td><td class="text-center">Bi-Weekly</td><td class="text-center font-bold">Weekly ROI</td></tr>
+                            <tr class="bg-green-50/30">
+                                <td class="font-bold text-ca-green border-t border-slate-200">ICAI Compliance Audit</td>
+                                <td class="text-center text-ca-green border-t border-slate-200"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center text-ca-green font-bold border-t border-slate-200"><i class="fa-solid fa-check-double"></i> Detailed</td>
+                                <td class="text-center text-ca-green font-bold border-t border-slate-200"><i class="fa-solid fa-shield-halved"></i> 50-Point Filter</td>
+                            </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- PPC Add-On Block -->
+            <div class="max-w-4xl mx-auto bg-white border border-slate-300 shadow-sm rounded-lg p-8 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+                <div>
+                    <h4 class="text-xl font-serif font-bold text-slate-900 mb-2">Performance PPC Add-On</h4>
+                    <p class="text-slate-600 text-sm mb-4">Run highly targeted Google and LinkedIn Ads for non-exclusive advisory and registration services, legally permitted under the new rules.</p>
+                    <div class="flex items-center gap-3 text-sm font-semibold">
+                        <span class="bg-slate-50 border border-slate-200 px-3 py-1 rounded text-ca-blue">15% of Ad Spend</span>
+                        <span class="text-slate-400 text-xs">OR</span>
+                        <span class="bg-slate-50 border border-slate-200 px-3 py-1 rounded text-ca-blue">₹10,000/mo Min.</span>
+                    </div>
+                </div>
+                <div class="w-full md:w-auto mt-4 md:mt-0">
+                    <a href="ppc-management.html" class="block w-full px-6 py-2.5 bg-white border border-ca-blue text-ca-blue hover:bg-slate-50 font-bold rounded text-center text-sm transition">View PPC Structure</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FULL PARTNER FAQS SECTION (RESTORED ALL 6) -->
+    <!-- FULL PARTNER FAQS SECTION -->
     <section id="faq" class="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -493,22 +526,33 @@
     </section>
 
     <!-- ROI Simulator -->
-    <section id="simulator" class="py-16 bg-ca-dark text-white relative border-t-4 border-ca-green">
+    <section id="simulator" class="py-16 sm:py-24 bg-ca-dark relative overflow-hidden text-white border-t-4 border-ca-green">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ca-blue rounded-full blur-[120px] opacity-20 z-0"></div>
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h2 class="text-3xl font-serif font-bold text-center mb-12 reveal">Firm P&L Simulator</h2>
-            <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 shadow-2xl reveal">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4">The Firm P&L Simulator</h2>
+                <div class="max-w-2xl mx-auto text-sm text-slate-400 mb-8 leading-relaxed">
+                    CAs operate on Lifetime Value (LTV). If a client signs up for a monthly GST retainer, they usually stay for 3-5 years. Use the sliders below to see how increasing organic visibility affects your firm's bottom line.
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 md:p-12 shadow-2xl reveal">
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="space-y-8">
                         <div>
-                            <label class="block text-slate-300 text-xs font-bold mb-3 uppercase">Monthly Visitors</label>
+                            <label class="block text-slate-300 text-xs font-bold mb-3 uppercase tracking-wider">Current Monthly Visitors</label>
                             <input type="range" min="100" max="10000" step="100" value="1000" id="trafficSlider" class="w-full">
-                            <div class="flex justify-between mt-3 text-slate-500 font-mono text-xs"><span>100</span><span id="trafficValue" class="text-white font-bold">1,000</span><span>10k+</span></div>
+                            <div class="flex justify-between mt-3 text-slate-500 font-mono text-xs">
+                                <span>100</span><span id="trafficValue" class="text-white font-bold">1,000</span><span>10k+</span>
+                            </div>
                         </div>
                         <div>
-                            <label class="block text-slate-300 text-xs font-bold mb-3 uppercase">Avg Client Value (₹/Yr)</label>
-                            <input type="number" id="dealValue" value="50000" class="w-full bg-slate-800 border border-slate-600 text-white rounded px-4 py-2 font-mono text-sm">
+                            <label class="block text-slate-300 text-xs font-bold mb-3 uppercase tracking-wider">Avg. Client Value (₹/Year)</label>
+                            <input type="number" id="dealValue" value="50000" class="w-full bg-slate-800 border border-slate-600 text-white rounded px-4 py-2.5 font-mono text-sm focus:outline-none focus:border-slate-400 transition">
+                            <p class="text-xs text-slate-500 mt-2">Ex: A ₹4,000/mo advisory retainer = ₹48,000/yr.</p>
                         </div>
                     </div>
+
                     <div class="bg-slate-800 rounded-lg p-6 flex flex-col justify-center space-y-6 border border-slate-700">
                         <div class="flex justify-between items-center border-b border-slate-700 pb-4">
                             <div>
@@ -536,62 +580,78 @@
     </section>
 
     <!-- DYNAMIC INSIGHTS SLIDER (AT THE BOTTOM OF THE PAGE) -->
-    <section class="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section class="py-16 sm:py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-10 reveal">
                 <div>
-                    <h2 class="text-xs font-bold text-ca-blue uppercase tracking-widest mb-2">Thought Leadership</h2>
-                    <h3 class="text-3xl font-serif font-bold text-slate-900">Tactical Insights</h3>
+                    <h2 class="text-xs font-bold text-ca-blue uppercase tracking-widest mb-2">Firm Intel</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900">Tactical Insights</h3>
                 </div>
                 <div class="flex gap-2">
-                    <button id="slider-prev" class="slider-btn w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-50 transition"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button id="slider-next" class="slider-btn w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-50 transition"><i class="fa-solid fa-chevron-right"></i></button>
+                    <button id="slider-prev" class="slider-btn w-10 h-10 rounded-full border border-slate-300 text-slate-600 hover:bg-ca-blue hover:text-white transition flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="slider-next" class="slider-btn w-10 h-10 rounded-full border border-slate-300 text-slate-600 hover:bg-ca-blue hover:text-white transition flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
 
             <div class="blog-slider-wrapper reveal">
                 <div class="blog-slider-inner" id="insights-slider">
                     <!-- Post 1 -->
-                    <div class="blog-card bg-white rounded-xl border p-6 flex flex-col cursor-pointer interactive-card" onclick="window.location.href='post-1-transfer-pricing.html'">
-                        <span class="text-ca-blue text-[10px] font-bold uppercase mb-2">Authority SEO</span>
-                        <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">Transfer Pricing SEO Strategy</h4>
-                        <p class="text-xs text-slate-600 mb-4 flex-grow">How to rank for high-ticket advisory safely.</p>
-                        <span class="text-ca-blue text-xs font-bold pt-4 border-t">Read Article &rarr;</span>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-1-transfer-pricing.html'">
+                        <div class="p-6 flex flex-col flex-grow border-t-4 border-ca-blue">
+                            <span class="text-ca-blue text-[10px] font-bold uppercase tracking-wider mb-2">Authority SEO</span>
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">Ranking for "Transfer Pricing" Safely</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">A blueprint for structuring a compliant, high-converting advisory landing page.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                        </div>
                     </div>
                     <!-- Post 2 -->
-                    <div class="blog-card bg-white rounded-xl border p-6 flex flex-col cursor-pointer interactive-card" onclick="window.location.href='post-2-linkedin-ads.html'">
-                        <span class="text-ca-blue text-[10px] font-bold uppercase mb-2">PPC & Ads</span>
-                        <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">Targeting CFOs on LinkedIn</h4>
-                        <p class="text-xs text-slate-600 mb-4 flex-grow">Bypassing gatekeepers with technical guides.</p>
-                        <span class="text-ca-blue text-xs font-bold pt-4 border-t">Read Article &rarr;</span>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-2-linkedin-ads.html'">
+                        <div class="p-6 flex flex-col flex-grow border-t-4 border-ca-blue">
+                            <span class="text-ca-blue text-[10px] font-bold uppercase tracking-wider mb-2">PPC & Ads</span>
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">LinkedIn Ads: Targeting CFOs Legally</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">Learn how to bypass gatekeepers and put advisory services in front of decision-makers.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                        </div>
                     </div>
                     <!-- Post 3 -->
-                    <div class="blog-card bg-white rounded-xl border p-6 flex flex-col cursor-pointer interactive-card" onclick="window.location.href='post-3-local-seo.html'">
-                        <span class="text-ca-green text-[10px] font-bold uppercase mb-2">Local SEO</span>
-                        <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">Local SEO vs. PPC for GST</h4>
-                        <p class="text-xs text-slate-600 mb-4 flex-grow">A Cost-Per-Acquisition analysis.</p>
-                        <span class="text-ca-blue text-xs font-bold pt-4 border-t">Read Article &rarr;</span>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-3-local-seo.html'">
+                        <div class="p-6 flex flex-col flex-grow border-t-4 border-ca-green">
+                            <span class="text-ca-green text-[10px] font-bold uppercase tracking-wider mb-2">Local SEO</span>
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">Local SEO vs. PPC: ROI Breakdown</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">An analytical breakdown of Customer Acquisition Cost for routine GST compliance queries.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                        </div>
                     </div>
                     <!-- Post 4 -->
-                    <div class="blog-card bg-white rounded-xl border p-6 flex flex-col cursor-pointer interactive-card" onclick="window.location.href='post-4-content-trap.html'">
-                        <span class="text-alert-red text-[10px] font-bold uppercase mb-2">Content</span>
-                        <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">The Generic B2C Content Trap</h4>
-                        <p class="text-xs text-slate-600 mb-4 flex-grow">Why "What is GST" blogs cost you leads.</p>
-                        <span class="text-ca-blue text-xs font-bold pt-4 border-t">Read Article &rarr;</span>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-4-content-trap.html'">
+                        <div class="p-6 flex flex-col flex-grow border-t-4 border-alert-red">
+                            <span class="text-alert-red text-[10px] font-bold uppercase tracking-wider mb-2">Content Strategy</span>
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">Why Basic Blogs Cost You B2B Leads</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">Why defining "Income Tax" attracts students, but analyzing circulars attracts CFOs.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                        </div>
                     </div>
                     <!-- Post 5 -->
-                    <div class="blog-card bg-white rounded-xl border p-6 flex flex-col cursor-pointer interactive-card" onclick="window.location.href='post-5-icai-compliance.html'">
-                        <span class="text-alert-red text-[10px] font-bold uppercase mb-2">Compliance</span>
-                        <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">Prohibited Superlatives</h4>
-                        <p class="text-xs text-slate-600 mb-4 flex-grow">5 words that trigger ICAI notices.</p>
-                        <span class="text-ca-blue text-xs font-bold pt-4 border-t">Read Article &rarr;</span>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-5-icai-compliance.html'">
+                        <div class="p-6 flex flex-col flex-grow border-t-4 border-alert-red">
+                            <span class="text-alert-red text-[10px] font-bold uppercase tracking-wider mb-2">Compliance</span>
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">5 Superlatives to Delete Today</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">The words that trigger disciplinary notices under the 13th Edition Code of Ethics.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                        </div>
                     </div>
                     <!-- Post 6 -->
-                    <div class="blog-card bg-white rounded-xl border p-6 flex flex-col cursor-pointer interactive-card" onclick="window.location.href='post-6-aeo-geo.html'">
-                        <span class="text-slate-500 text-[10px] font-bold uppercase mb-2">AI Strategy</span>
-                        <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">AEO: Future of CA Search</h4>
-                        <p class="text-xs text-slate-600 mb-4 flex-grow">Structuring knowledge for AI engines.</p>
-                        <span class="text-ca-blue text-xs font-bold pt-4 border-t">Read Article &rarr;</span>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-6-aeo-geo.html'">
+                        <div class="p-6 flex flex-col flex-grow border-t-4 border-slate-700">
+                            <span class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2">AI Strategy</span>
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">AEO: How AI is Changing CA Search</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">Structure your firm's technical knowledge so it gets cited by ChatGPT and AI Overviews.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -611,19 +671,21 @@
                         <i class="fa-solid fa-chess-knight text-slate-400 text-2xl"></i>
                         <span class="text-xl font-serif font-bold text-white tracking-tight">Tax-tical Brilliance</span>
                     </div>
-                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-xs">Precision growth for Indian Chartered Accountants, 100% ICAI compliant. We turn regulation into advantage.</p>
+                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-xs leading-relaxed">
+                        Precision digital growth for Indian Chartered Accountants, fully compliant with the ICAI 13th Edition Code of Ethics. We turn regulatory changes into competitive advantages.
+                    </p>
                     <div class="flex space-x-4 mt-6 justify-center md:justify-start">
                         <a href="#" class="text-slate-500 hover:text-white transition transform hover:scale-110"><i class="fa-brands fa-linkedin text-lg"></i></a>
                         <a href="#" class="text-slate-500 hover:text-white transition transform hover:scale-110"><i class="fa-solid fa-envelope text-lg"></i></a>
                     </div>
                 </div>
                 <div class="md:col-span-3">
-                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Capabilities</h4>
+                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Growth Engines</h4>
                     <ul class="space-y-2 text-slate-400 text-xs">
                         <li><a href="seo-services.html" class="hover:text-white transition">Authority SEO</a></li>
                         <li><a href="ppc-management.html" class="hover:text-white transition">Performance PPC</a></li>
                         <li><a href="local-seo.html" class="hover:text-white transition">Maps Dominance</a></li>
-                        <li><a href="content-marketing.html" class="hover:text-white transition">Technical Content</a></li>
+                        <li><a href="content-marketing.html" class="hover:text-white transition">Tax Content</a></li>
                     </ul>
                 </div>
                 <div class="md:col-span-3">
@@ -639,12 +701,12 @@
                     <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Connect</h4>
                     <ul class="space-y-2 text-slate-400 text-xs">
                         <li><a href="blog.html" class="hover:text-white transition">Insights Hub</a></li>
-                        <li><a href="contact.html" class="text-ca-green font-bold hover:text-white transition">Book Session &rarr;</a></li>
+                        <li><a href="contact.html" class="text-ca-green font-bold hover:text-white transition">Book a Call &rarr;</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 text-center text-[10px] text-slate-500 uppercase tracking-widest">
-                &copy; 2026 Tax-tical Brilliance. Disclaimer: Not affiliated with ICAI.
+                &copy; 2026 Tax-tical Brilliance. Not affiliated with ICAI.
             </div>
         </div>
     </footer>
@@ -656,11 +718,18 @@
             menu.classList.toggle('hidden');
         }
 
-        function toggleFaq(element) {
-            const parent = element.parentElement;
-            const isActive = parent.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            if (!isActive) parent.classList.add('active');
+        // Bulletproof FAQ toggle
+        function toggleFaq(buttonElement) {
+            const faqItem = buttonElement.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
         }
 
         // Scroll Reveal
@@ -708,6 +777,7 @@
             projectedRevDisplay.innerText = formatINR(newRev);
             if (gainDisplay) gainDisplay.innerText = "+" + formatINR(gain);
         }
+        
         if(slider && dealInput) { 
             slider.addEventListener('input', calculateROI); 
             dealInput.addEventListener('input', calculateROI); 
@@ -780,6 +850,7 @@
             }, 100);
         });
     </script>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
+
