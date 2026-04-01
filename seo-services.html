@@ -6,17 +6,15 @@
     <title>Authority SEO for CA Firms | Tax-tical Brilliance</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind for ICAI Colors -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'ca-blue': '#1E3A8A', // Deep Navy Blue
-                        'ca-green': '#15803D', // Emerald/Forest Green
+                        'ca-blue': '#1E3A8A', 
+                        'ca-green': '#15803D', 
                         'ca-dark': '#0F172A',
                         'accent-orange': '#ea580c',
-                        'accent-green': '#15803d',
                         'alert-red': '#dc2626',
                     },
                     fontFamily: {
@@ -33,13 +31,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body { scroll-behavior: smooth; }
+        body { scroll-behavior: smooth; overflow-x: hidden; }
         
         /* Subtle Indian Flag Top Border */
         .indian-border-top {
             background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
-            height: 4px;
-            width: 100%;
+            height: 4px; width: 100%; position: fixed; top: 0; z-index: 100;
         }
 
         .bg-grid {
@@ -48,73 +45,100 @@
                               linear-gradient(to bottom, rgba(30, 58, 138, 0.05) 1px, transparent 1px);
         }
 
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -5px rgba(15, 23, 42, 0.08);
+        }
+
         /* Dropdown transition */
         .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.2s ease;
+            opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.2s ease;
         }
         .dropdown-container:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            opacity: 1; visibility: visible; transform: translateY(0);
         }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* Dynamic Blog Slider CSS */
+        .blog-slider-wrapper { overflow: hidden; position: relative; padding: 1rem 0 2rem 0; }
+        .blog-slider-inner { display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); gap: 2rem; }
+        .blog-card { flex: 0 0 calc(33.333% - 1.33rem); min-width: 0; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(30, 58, 138, 0.12); }
+        @media (max-width: 1024px) { .blog-card { flex: 0 0 calc(50% - 1rem); } }
+        @media (max-width: 640px) { .blog-card { flex: 0 0 100%; margin-right: 0; } }
+        .slider-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* Custom image hover effects */
+        .img-hover-zoom { transition: transform 0.7s ease; }
+        .img-container:hover .img-hover-zoom { transform: scale(1.05); }
+
+        /* Comparison Table Styling */
+        .pricing-table th, .pricing-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
+        .pricing-table th { background-color: #f8fafc; font-weight: 700; color: #0F172A; text-align: left; }
+        .pricing-table tr:hover td { background-color: #f8fafc; }
     </style>
 </head>
-<body class="text-slate-800 bg-white font-sans">
+<body class="text-slate-800 bg-white font-sans pt-[4px]">
 
-    <!-- Subtle Patriotic Border -->
     <div class="indian-border-top"></div>
 
-    <!-- Regulatory Alert Banner (Evergreen Tone) -->
-    <div class="bg-black text-slate-300 text-sm font-medium py-2.5 px-4 text-center z-50 relative border-b border-slate-800 tracking-wide">
-        <i class="fa-solid fa-circle-info text-ca-blue mr-2"></i>
-        <strong class="text-white">REGULATORY NOTICE:</strong> The ICAI 13th Edition Code of Ethics came into effect on April 1, 2026. <a href="compliance-code.html" class="underline ml-2 hover:text-white transition">View Marketing Guidelines</a>
+    <!-- Regulatory Alert Banner -->
+    <div class="bg-black text-slate-300 text-xs font-medium py-2.5 px-4 text-center z-50 relative border-b border-slate-800 tracking-wide">
+        <span class="animate-pulse inline-block w-2.5 h-2.5 bg-red-600 rounded-full mr-2 align-middle shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+        <strong class="text-white uppercase tracking-tighter mr-1">Urgent:</strong> The ICAI 13th Edition Code of Ethics is now in effect. <a href="compliance-code.html" class="underline ml-2 hover:text-white transition">Read Manifesto</a>
     </div>
 
-    <!-- Navigation -->
+    <!-- MASTER HEADER -->
     <nav class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <a href="index.html" class="flex-shrink-0 flex items-center gap-3 group">
-                    <i class="fa-solid fa-chess-knight text-ca-blue text-3xl group-hover:text-ca-green transition"></i>
+                    <i class="fa-solid fa-chess-knight text-ca-blue text-3xl group-hover:text-ca-green transition transform group-hover:scale-110"></i>
                     <div class="flex flex-col">
                         <span class="text-xl sm:text-2xl font-serif font-black text-ca-dark leading-none tracking-tight">Tax-tical</span>
-                        <span class="text-sm font-bold text-ca-green uppercase tracking-widest leading-none mt-1">Brilliance</span>
+                        <span class="text-[10px] font-bold text-ca-green uppercase tracking-widest leading-none mt-1">Brilliance</span>
                     </div>
                 </a>
                 
                 <!-- Desktop Links -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden lg:flex items-center space-x-7">
                     <div class="relative dropdown-container py-6">
-                        <a href="index.html#services" class="text-ca-blue font-bold transition flex items-center gap-1 text-sm">
+                        <a href="index.html#services" class="text-ca-blue font-bold transition flex items-center gap-1 text-sm border-b-2 border-ca-blue pb-1">
                             Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
                         </a>
                         <div class="dropdown-menu absolute top-[70px] left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-xl py-2 z-50">
-                            <a href="seo-services.html" class="block px-4 py-2 text-sm text-ca-blue bg-blue-50 font-bold border-l-2 border-ca-blue">Authority SEO for CAs</a>
-                            <a href="ppc-management.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue font-medium">Performance PPC (Ads)</a>
-                            <a href="local-seo.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue font-medium">Local GMB Dominance</a>
-                            <a href="content-marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue font-medium">Technical Tax Flashes</a>
+                            <a href="seo-services.html" class="block px-4 py-2 text-sm text-ca-blue bg-blue-50 font-bold border-l-2 border-ca-blue transition">Authority SEO</a>
+                            <a href="ppc-management.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue transition">Performance PPC</a>
+                            <a href="local-seo.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue transition">Local Maps Dominance</a>
+                            <a href="content-marketing.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-ca-blue transition">Technical Tax Flashes</a>
                         </div>
                     </div>
                     
+                    <a href="roi-tracker.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">ROI Tracker</a>
+                    <a href="resources.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Resources</a>
+                    <a href="blog.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Insights</a>
                     <a href="compliance-code.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">The 2026 Code</a>
-                    <a href="index.html#pricing" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Packages</a>
-                    <a href="index.html#faq" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">FAQ</a>
+                    <a href="about-us.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Our Story</a>
                 </div>
                 
                 <!-- Desktop CTA -->
                 <div class="hidden md:block">
-                    <a href="#contact" class="bg-ca-blue hover:bg-ca-dark text-white px-6 py-2.5 rounded text-sm font-bold transition shadow-md">
-                        Request Ethics Audit
+                    <a href="contact.html" class="bg-ca-blue hover:bg-ca-dark text-white px-6 py-2.5 rounded text-sm font-bold transition shadow-md transform hover:-translate-y-0.5 inline-block">
+                        Book Session
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2" onclick="toggleMobileMenu()">
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2 transition" onclick="toggleMobileMenu()">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -122,268 +146,617 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full z-50">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full max-h-[80vh] overflow-y-auto z-50">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
-                <a href="seo-services.html" class="block px-3 py-3 rounded-md text-sm font-bold text-ca-blue bg-blue-50 border-l-2 border-ca-blue">Authority SEO</a>
-                <a href="ppc-management.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Performance PPC</a>
+                <div class="py-2 border-y border-slate-100 my-2">
+                    <p class="px-3 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Our Services</p>
+                    <a href="seo-services.html" class="block px-3 py-2 rounded-md text-sm font-bold text-ca-blue bg-blue-50 border-l-2 border-ca-blue pl-6">Authority SEO</a>
+                    <a href="ppc-management.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-ca-blue hover:bg-slate-50 pl-6">Performance PPC</a>
+                    <a href="local-seo.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-ca-blue hover:bg-slate-50 pl-6">Local Maps Dominance</a>
+                    <a href="content-marketing.html" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-ca-blue hover:bg-slate-50 pl-6">Technical Tax Flashes</a>
+                </div>
+                <a href="roi-tracker.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">ROI Tracker</a>
+                <a href="resources.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Resources</a>
+                <a href="blog.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Insights</a>
                 <a href="compliance-code.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">The 2026 Code</a>
-                <a href="index.html#pricing" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Pricing</a>
+                <a href="about-us.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Our Story</a>
+                <a href="contact.html" class="block px-3 py-3 mt-4 text-center rounded-md text-sm font-bold text-white bg-ca-blue">Book Session</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header (Hero) -->
-    <section class="pt-16 pb-12 lg:pt-24 lg:pb-20 bg-ca-dark text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-ca-blue rounded-full blur-[150px] opacity-40 z-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold text-slate-300 border border-slate-600 mb-6 bg-slate-800/50">
-                    <i class="fa-solid fa-magnifying-glass-chart mr-2"></i> Search Engine Optimization
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
-                    Rank for the High-Value Engagements. <span class="text-ca-green">Safely.</span>
-                </h1>
-                <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-2xl">
-                    Following the April 1, 2026 ICAI directives, an optimized digital footprint is no longer optional. We engineer your firm's site architecture to capture high-intent B2B search traffic for complex advisory and tax services.
-                </p>
-                <div class="flex gap-4">
-                    <a href="#methodology" class="px-6 py-3 bg-ca-blue text-white font-bold rounded hover:bg-blue-800 transition">See Our Process</a>
-                    <a href="index.html#pricing" class="px-6 py-3 border border-slate-600 text-slate-300 font-bold rounded hover:bg-slate-800 hover:text-white transition">View Packages</a>
-                </div>
+    <!-- IMMERSIVE HERO SECTION -->
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 flex items-center min-h-[65vh] overflow-hidden">
+        <!-- Background Image & Overlays -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                 alt="Data analytics and SEO dashboard" 
+                 class="w-full h-full object-cover object-center"
+                 onerror="this.src='https://placehold.co/2000x1000/0F172A/FFFFFF?text=Authority+SEO'">
+            <!-- Double gradient overlay for text legibility -->
+            <div class="absolute inset-0 bg-slate-900/75"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ca-dark via-ca-dark/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <div class="inline-flex items-center rounded-full px-4 py-1.5 text-[10px] font-bold text-white border border-slate-500 mb-6 bg-slate-800/50 uppercase tracking-widest backdrop-blur-sm">
+                <i class="fa-solid fa-magnifying-glass-chart mr-2 text-ca-blue"></i> Authority Pull Marketing
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif font-black text-white mb-6 leading-tight drop-shadow-lg">
+                Rank safely.<br><span class="text-ca-blue">Dominate globally.</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto">
+                Organic search is the only legally compliant way to capture high-ticket Statutory Audit and Assurance leads. We build enterprise-grade site architectures that satisfy Google's strict YMYL algorithms without crossing ICAI red lines.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#pricing" class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold rounded text-white bg-ca-blue shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-0.5">
+                    View SEO Suites
+                </a>
+                <a href="#architecture" class="inline-flex justify-center items-center px-8 py-3.5 border border-slate-500 text-base font-bold rounded text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition shadow-sm">
+                    Explore Architecture
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- The Problem / Solution Section -->
-    <section class="py-16 lg:py-24 bg-grid bg-slate-50">
+    <!-- The YMYL Problem (Image Left, Text Right) -->
+    <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <h2 class="text-sm font-bold text-ca-blue uppercase tracking-widest mb-3">The YMYL & Ethics Challenge</h2>
-                <h3 class="text-3xl font-serif font-bold text-slate-900 mb-4">Why Generic SEO Fails CA Firms</h3>
-                <p class="text-slate-600">Search Engine Optimization for financial services requires navigating two rigid rulebooks simultaneously: Google's algorithms and the ICAI Code of Ethics.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- The Google Barrier -->
-                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
-                    <div class="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa-brands fa-google text-2xl text-slate-700"></i>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Image Left -->
+                <div class="relative reveal order-2 lg:order-1">
+                    <div class="absolute inset-0 bg-alert-red/5 rounded-2xl transform -translate-x-3 translate-y-3"></div>
+                    <div class="img-container relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[450px]">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Legal and compliance documents" 
+                             class="w-full h-full object-cover img-hover-zoom"
+                             onerror="this.src='https://placehold.co/800x600/f8fafc/0F172A?text=Compliance+Documents'">
                     </div>
-                    <h4 class="text-xl font-serif font-bold text-slate-900 mb-3">Google's YMYL Barrier</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        Taxation, auditing, and financial consultancy fall strictly under Google's <strong>"Your Money or Your Life" (YMYL)</strong> category. Google refuses to rank content that lacks demonstrable E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness).
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Generic SEO agencies outsource content to generalist copywriters. Google's algorithms detect this lack of technical depth immediately, suppressing your firm's rankings regardless of how many keywords are stuffed into the page.
-                    </p>
                 </div>
 
-                <!-- The ICAI Barrier -->
-                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-full blur-[40px] -mr-10 -mt-10"></div>
-                    <div class="w-12 h-12 bg-red-50 border border-red-100 rounded-lg flex items-center justify-center mb-6 relative z-10">
-                        <i class="fa-solid fa-scale-unbalanced text-2xl text-alert-red"></i>
-                    </div>
-                    <h4 class="text-xl font-serif font-bold text-slate-900 mb-3 relative z-10">The ICAI Disciplinary Risk</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4 relative z-10">
-                        Even if a generic agency successfully ranks your site, their methods often put your license in jeopardy. Standard SEO relies on aggressive meta-descriptions ("Best CA", "Top Audit Firm") and comparative advertising to drive click-through rates.
+                <!-- Text Right -->
+                <div class="reveal delay-100 order-1 lg:order-2">
+                    <h2 class="text-sm font-bold text-alert-red uppercase tracking-widest mb-3 flex items-center"><i class="fa-solid fa-triangle-exclamation mr-2"></i> The Compliance Barrier</h2>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-6">Why standard SEO fails CA firms.</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm">
+                        Google categorizes accounting, legal, and financial websites as <strong>YMYL (Your Money or Your Life)</strong>. Because inaccurate financial advice can ruin a business, Google's algorithms will not rank your firm unless your content demonstrates absolute <strong>E-E-A-T (Expertise, Experience, Authority, Trust)</strong>.
                     </p>
-                    <p class="text-slate-600 text-sm leading-relaxed relative z-10">
-                        Under the April 2026 regulations, using superlative phrasing or directly soliciting statutory audit work through organic search snippets violates professional ethics, triggering disciplinary action.
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm">
+                        When standard marketing agencies try to force rankings, they use outsourced copywriters who don't understand tax law, and they stuff meta tags with words like <em>"Best CA Firm."</em> This triggers a Google penalty for low quality, and an ICAI disciplinary notice for unethical solicitation.
                     </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-xmark text-alert-red mt-1 mr-3"></i>
+                            <span class="text-sm font-bold text-slate-700">No outsourced generalist copywriters.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-xmark text-alert-red mt-1 mr-3"></i>
+                            <span class="text-sm font-bold text-slate-700">No non-compliant superlatives ("Top," "Best").</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-ca-green mt-1 mr-3"></i>
+                            <span class="text-sm font-bold text-slate-700">Strict adherence to the 2026 Code of Ethics.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Methodology Section -->
-    <section id="methodology" class="py-16 lg:py-24 bg-white border-y border-slate-200">
+    <!-- Hub and Spoke Architecture (Text Left, Image Right) -->
+    <section id="architecture" class="py-16 lg:py-24 bg-slate-50 bg-grid border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16">
-                <h2 class="text-sm font-bold text-ca-green uppercase tracking-widest mb-3">Our Process</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900">The Bifurcated SEO Methodology</h3>
-            </div>
-
-            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Phase 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-ca-blue text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        1
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fa-solid fa-stethoscope text-ca-blue"></i>
-                            <h4 class="text-xl font-bold font-serif text-slate-900">Architecture & Compliance Audit</h4>
+                <!-- Text Left -->
+                <div class="reveal">
+                    <h2 class="text-sm font-bold text-ca-blue uppercase tracking-widest mb-3">Our Methodology</h2>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-6">The Hub & Spoke Architecture</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm">
+                        Instead of a single, flat "Services" page, we engineer deeply siloes technical architectures. We build highly authoritative "Hub" landing pages for complex services (e.g., Transfer Pricing, Virtual CFO, Internal Audit).
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm">
+                        We then support those hubs with "Spokes"—rapid-response Technical Tax Flashes that analyze recent CBDT/MCA circulars. These spokes funnel algorithmic link-equity to your service pages, commanding absolute domain authority.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-50 text-ca-blue rounded flex items-center justify-center font-bold shrink-0">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">JSON-LD Schema Markup</h4>
+                                <p class="text-xs text-slate-500 mt-1">We hardcode <code>ProfessionalService</code> and <code>FAQPage</code> schema directly into your site, feeding perfect data to AI engines and Google crawlers.</p>
+                            </div>
                         </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">We conduct a deep crawl of your existing site. We map technical errors (Core Web Vitals, broken redirects) that hurt crawling. Simultaneously, we run your existing copy through our 50-Point Ethics Filter to strip out any legacy superlative language.</p>
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-50 text-ca-green rounded flex items-center justify-center font-bold shrink-0">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Core Web Vitals Optimization</h4>
+                                <p class="text-xs text-slate-500 mt-1">Sub-second load times and zero layout shifts. We ensure your digital presence is as fast and professional as an enterprise application.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Phase 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-ca-blue text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        2
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fa-solid fa-sitemap text-ca-blue"></i>
-                            <h4 class="text-xl font-bold font-serif text-slate-900">Service Taxonomy Engineering</h4>
-                        </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">CAs offer dozens of services. Putting them all on one page dilutes relevance. We restructure your site taxonomy. We build dedicated, siloes landing pages for specific B2B intents—separating "Transfer Pricing Advisory" from "GST Litigation" to capture exact-match search queries.</p>
-                    </div>
-                </div>
-
-                <!-- Phase 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-ca-blue text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        3
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fa-solid fa-pen-nib text-ca-blue"></i>
-                            <h4 class="text-xl font-bold font-serif text-slate-900">E-E-A-T Content Formatting</h4>
-                        </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">We optimize the on-page content using authoritative, fact-based copy. We inject rich <code>ProfessionalService</code> and <code>FAQPage</code> schema markup directly into the HTML. This ensures Google understands exactly who the partners are and their specific areas of legal expertise.</p>
+                <!-- Image Right -->
+                <div class="relative reveal delay-200">
+                    <div class="absolute inset-0 bg-ca-blue/5 rounded-2xl transform rotate-2"></div>
+                    <div class="img-container relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[550px]">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Architecture and network strategy" 
+                             class="w-full h-full object-cover img-hover-zoom"
+                             onerror="this.src='https://placehold.co/800x600/f8fafc/0F172A?text=Technical+Architecture'">
+                        <!-- Soft overlay -->
+                        <div class="absolute inset-0 bg-ca-dark/10"></div>
                     </div>
                 </div>
 
-                <!-- Phase 4 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-ca-blue text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        4
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-ca-green bg-green-50/30 shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-ca-green text-white text-[9px] font-bold px-2 py-1 rounded-bl uppercase tracking-wider">Continuous</div>
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fa-solid fa-link text-ca-green"></i>
-                            <h4 class="text-xl font-bold font-serif text-slate-900">High-Trust Entity Building</h4>
-                        </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">We execute passive authority building. We list your firm on high-trust financial and legal directories, manage local citations, and syndicate our Technical Tax Flashes to build a robust backlink profile without engaging in spammy, non-compliant link exchanges.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Taxonomy Example Box -->
-    <section class="py-16 bg-slate-50 border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-ca-dark rounded-xl shadow-lg p-8 md:p-12 text-center text-white">
-                <h3 class="text-2xl font-serif font-bold mb-4">How we structure your site (The Hub & Spoke Model)</h3>
-                <p class="text-sm text-slate-400 max-w-2xl mx-auto mb-10">To rank for high-value services, Google must recognize your site as a comprehensive library on specific financial subjects, not just a digital business card.</p>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 sm:py-24 bg-white relative border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Investment</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4">Authority SEO Suites</h3>
+                <p class="mt-4 text-base text-slate-600 max-w-2xl mx-auto">Month-to-month retainers. No long-term lock-ins. All plans include continuous ICAI ethics filtering.</p>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16">
+                <!-- Foundation -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 flex flex-col shadow-sm transition hover:border-slate-300 reveal">
+                    <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">The Foundation</span>
+                    <h3 class="text-xl font-serif font-bold text-slate-900">Local Presence</h3>
+                    <div class="my-5 pb-5 border-b border-slate-200">
+                        <span class="text-3xl font-extrabold text-slate-900">₹15,000</span><span class="text-slate-500 text-sm">/mo</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 text-sm text-slate-600">
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i>1 Content Guide / Month</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i>Basic Tech Audit</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i>Local GMB Post</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i>Ethics Audit</li>
+                    </ul>
+                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-white border border-slate-300 font-bold rounded text-center text-slate-700 hover:bg-slate-100 text-sm transition">Select Plan</a>
+                </div>
                 
-                <div class="grid sm:grid-cols-3 gap-6 text-left">
-                    <div class="bg-slate-800 border border-slate-600 rounded p-5">
-                        <div class="font-bold text-ca-green text-sm mb-3 uppercase tracking-wider border-b border-slate-600 pb-2">Hub: Corporate Tax</div>
-                        <ul class="space-y-2 text-sm text-slate-300">
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Transfer Pricing</li>
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> DTAA Advisory</li>
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Expatriate Taxation</li>
-                        </ul>
+                <!-- Growth Engine -->
+                <div class="bg-white border-2 border-ca-blue shadow-lg rounded-xl p-8 flex flex-col relative z-10 transform lg:-translate-y-2 reveal delay-100">
+                    <div class="absolute top-0 right-0 bg-ca-blue text-white text-[9px] font-bold px-3 py-1 rounded-bl uppercase tracking-widest">Most Popular</div>
+                    <span class="text-ca-blue text-[10px] font-bold uppercase tracking-widest mb-2">The Growth Engine</span>
+                    <h3 class="text-xl font-serif font-bold text-slate-900">Niche Dominance</h3>
+                    <div class="my-5 pb-5 border-b border-slate-100">
+                        <span class="text-3xl font-extrabold text-slate-900">₹45,000</span><span class="text-slate-500 text-sm">/mo</span>
                     </div>
-                    <div class="bg-slate-800 border border-slate-600 rounded p-5">
-                        <div class="font-bold text-ca-blue text-sm mb-3 uppercase tracking-wider border-b border-slate-600 pb-2">Hub: Advisory</div>
-                        <ul class="space-y-2 text-sm text-slate-300">
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Virtual CFO Services</li>
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Due Diligence</li>
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> FEMA Compliance</li>
-                        </ul>
+                    <ul class="space-y-4 mb-8 flex-1 text-sm text-slate-700">
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-blue w-4 text-center"></i><span class="font-bold text-slate-900">Up to 5 SEO Service Hubs</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-blue w-4 text-center"></i><span class="font-bold text-slate-900">4 Technical Flashes / Month</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-blue w-4 text-center"></i>Schema Injection</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-blue w-4 text-center"></i>Manual Copy Review</li>
+                    </ul>
+                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-ca-blue text-white font-bold rounded text-center text-sm shadow-md hover:bg-ca-dark transition">Start Engine</a>
+                </div>
+
+                <!-- Elite -->
+                <div class="bg-ca-dark text-white border border-slate-700 rounded-xl p-8 flex flex-col shadow-md reveal delay-200">
+                    <span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-2">The Elite Practice</span>
+                    <h3 class="text-xl font-serif font-bold text-white">National Authority</h3>
+                    <div class="my-5 pb-5 border-b border-slate-700">
+                        <span class="text-3xl font-extrabold text-white">₹1.25L</span><span class="text-slate-400 text-sm">/mo</span>
                     </div>
-                    <div class="bg-slate-800 border border-slate-600 rounded p-5">
-                        <div class="font-bold text-slate-400 text-sm mb-3 uppercase tracking-wider border-b border-slate-600 pb-2">Hub: Assurance (Passive)</div>
-                        <ul class="space-y-2 text-sm text-slate-300 opacity-80">
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Statutory Audit</li>
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Internal Audit</li>
-                            <li><i class="fa-solid fa-arrow-turn-up fa-rotate-90 mr-2 text-slate-500"></i> Forensic Audit</li>
-                        </ul>
-                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i><span class="font-bold text-white">Up to 15 SEO Service Hubs</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i><span class="font-bold text-white">20 Technical Flashes / Month</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i>Custom Schema Architecture</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check mt-1 mr-3 text-ca-green w-4 text-center"></i>AEO Readiness Protocol</li>
+                    </ul>
+                    <a href="contact.html" class="mt-auto block w-full py-2.5 bg-slate-800 border border-slate-600 text-white font-bold rounded text-center text-sm hover:bg-slate-700 transition">Apply for Elite</a>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="max-w-5xl mx-auto bg-white border border-slate-200 shadow-sm rounded-lg overflow-hidden mb-12 reveal">
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                    <h4 class="font-serif font-bold text-slate-900 text-base">Detailed Deliverables Comparison</h4>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm pricing-table">
+                        <thead class="bg-white border-b">
+                            <tr><th class="w-1/4">Feature</th><th class="text-center w-1/4">Foundation</th><th class="text-center w-1/4">Growth Engine</th><th class="text-center w-1/4">Elite Practice</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SEO Service Pages</td><td class="text-center text-slate-400">-</td><td class="text-center font-bold">5 Pages</td><td class="text-center font-bold">15 Pages</td></tr>
+                            <tr><td>Technical Tax Flashes</td><td class="text-center">1/mo</td><td class="text-center font-bold">4/mo</td><td class="text-center font-bold">20/mo</td></tr>
+                            <tr><td>Google Business Profile</td><td class="text-center">1 Update / mo</td><td class="text-center">Weekly Updates</td><td class="text-center font-bold">Daily Mgmt</td></tr>
+                            <tr><td>Map Pack Strategy</td><td class="text-center">Basic Setup</td><td class="text-center">City-Level Push</td><td class="text-center font-bold">Multi-Location</td></tr>
+                            <tr><td>Analytics Reporting</td><td class="text-center">Monthly</td><td class="text-center">Bi-Weekly</td><td class="text-center font-bold">Weekly ROI</td></tr>
+                            <tr class="bg-green-50/30">
+                                <td class="font-bold text-ca-green border-t border-slate-200">ICAI Compliance Audit</td>
+                                <td class="text-center text-ca-green border-t border-slate-200"><i class="fa-solid fa-check"></i></td>
+                                <td class="text-center text-ca-green font-bold border-t border-slate-200"><i class="fa-solid fa-check-double"></i> Detailed</td>
+                                <td class="text-center text-ca-green font-bold border-t border-slate-200"><i class="fa-solid fa-shield-halved"></i> 50-Point Filter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Pricing Reference -->
-    <section class="py-12 bg-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h3 class="text-2xl font-serif font-bold text-slate-900 mb-4">Ready to build organic authority?</h3>
-            <p class="text-slate-600 text-sm mb-6">Our Authority SEO execution is available inside the <strong>Growth Engine</strong> (up to 5 pages) and <strong>Elite Practice</strong> (up to 15 pages) tiers.</p>
-            <a href="index.html#pricing" class="inline-block px-8 py-3 bg-white border-2 border-ca-blue text-ca-blue font-bold rounded hover:bg-slate-50 transition">Compare Full SEO Packages &rarr;</a>
-        </div>
-    </section>
-
-    <!-- Calendly / CTA Section -->
-    <section id="contact" class="py-16 sm:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-slate-900 mb-4">Request an SEO Architecture Audit</h2>
-            <p class="text-base text-slate-600 mb-10 max-w-2xl mx-auto">Book a session to see how your firm's current website structure is performing against Google's YMYL standards.</p>
+    <!-- SEO Specific FAQs -->
+    <section id="faq" class="py-16 sm:py-24 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Knowledge Base</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4">Authority SEO FAQs</h3>
+            </div>
             
-            <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-lg overflow-hidden mx-auto w-full">
-                <!-- Calendly Inline Widget -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/kalashnandal-ckdi?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=1E3A8A" style="min-width:320px;height:650px;"></div>
+            <div class="space-y-3">
+                <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal faq-item">
+                    <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
+                        <h3 class="font-bold text-slate-900 text-sm pr-4">How is SEO different for CA firms versus regular businesses?</h3>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
+                        <div class="px-4 pb-4">
+                            <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">CA firms fall under Google's YMYL (Your Money or Your Life) category, meaning they are held to an incredibly high standard of factual accuracy. Furthermore, CA firms cannot use comparative marketing (e.g., "Best CA in India") without violating ICAI ethics. We engineer SEO strategies that satisfy both Google's E-E-A-T algorithms and the ICAI Code of Ethics simultaneously.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100 faq-item">
+                    <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
+                        <h3 class="font-bold text-slate-900 text-sm pr-4">Can we rank for "Statutory Audit" keywords?</h3>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
+                        <div class="px-4 pb-4">
+                            <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">Yes, through organic (Pull) marketing. While paying for Google Ads (Push marketing) for audit services is strictly prohibited, ranking your website organically for informational queries regarding audits is completely permissible under the 13th Edition guidelines, provided the page is factual and not directly soliciting work.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200 faq-item">
+                    <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
+                        <h3 class="font-bold text-slate-900 text-sm pr-4">What is a "Hub and Spoke" architecture?</h3>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
+                        <div class="px-4 pb-4">
+                            <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">It is an advanced SEO structuring technique. We build a highly authoritative "Hub" page for a specific service (like Virtual CFO). We then write highly technical blog posts ("Spokes") addressing specific questions about Virtual CFO services, and link them all back to the main Hub page. This funnels authority to your main service page, pushing it to the top of Google.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-ca-dark border-t border-slate-800 pt-16 pb-8 relative z-10">
+    <!-- OTHER SERVICES SECTION -->
+    <section class="py-16 sm:py-24 bg-slate-50 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-10 mb-12 text-center md:text-left">
-                <div class="col-span-2">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Comprehensive Growth</h2>
+                <h3 class="text-3xl font-serif font-bold text-slate-900 mb-4">Explore Our Other Growth Engines</h3>
+                <p class="text-base text-slate-600 max-w-2xl mx-auto">Authority SEO is just one pillar. Discover how we build complete, compliant digital dominance for CA firms.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Local Maps -->
+                <div class="bg-white border border-slate-200 rounded-xl p-8 flex flex-col shadow-sm feature-card reveal delay-100 cursor-pointer" onclick="window.location.href='local-seo.html'">
+                    <i class="fa-solid fa-map-location-dot text-3xl text-ca-green mb-4"></i>
+                    <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">Local Maps Dominance</h4>
+                    <p class="text-sm text-slate-600 mb-6 flex-grow">Capture 80% of "Near Me" compliance queries with our aggressive GMB optimization structure.</p>
+                    <span class="text-ca-green text-sm font-bold transition">Explore Local SEO &rarr;</span>
+                </div>
+                <!-- Performance PPC -->
+                <div class="bg-white border border-slate-200 rounded-xl p-8 flex flex-col shadow-sm feature-card reveal delay-200 cursor-pointer" onclick="window.location.href='ppc-management.html'">
+                    <i class="fa-solid fa-bullseye text-3xl text-slate-800 mb-4"></i>
+                    <h4 class="text-lg font-serif font-bold text-slate-900 mb-2">Performance PPC</h4>
+                    <p class="text-sm text-slate-600 mb-6 flex-grow">Target CFOs and Founders with Google and LinkedIn Ads for non-exclusive advisory services.</p>
+                    <span class="text-ca-blue text-sm font-bold transition">Explore PPC &rarr;</span>
+                </div>
+                <!-- Technical Content -->
+                <div class="bg-ca-dark text-white border border-slate-700 rounded-xl p-8 flex flex-col shadow-md feature-card reveal delay-300 cursor-pointer" onclick="window.location.href='content-marketing.html'">
+                    <i class="fa-solid fa-newspaper text-3xl text-slate-300 mb-4"></i>
+                    <h4 class="text-lg font-serif font-bold mb-2">Technical Tax Flashes</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Produce rapid-response circular analysis to capture B2B "Google Discover" traffic.</p>
+                    <span class="text-white text-sm font-bold transition">Explore Content &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC INSIGHTS SLIDER -->
+    <section class="py-16 sm:py-24 bg-white relative overflow-hidden border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10 reveal">
+                <div>
+                    <h2 class="text-xs font-bold text-ca-blue uppercase tracking-widest mb-2">Firm Intel</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900">Tactical Insights</h3>
+                </div>
+                <div class="flex gap-2">
+                    <button id="slider-prev" class="slider-btn w-10 h-10 rounded-full border border-slate-300 text-slate-600 hover:bg-ca-blue hover:text-white transition flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="slider-next" class="slider-btn w-10 h-10 rounded-full border border-slate-300 text-slate-600 hover:bg-ca-blue hover:text-white transition flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="blog-slider-wrapper reveal">
+                <div class="blog-slider-inner" id="insights-slider">
+                    
+                    <!-- Post 1 -->
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-1-transfer-pricing.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Transfer Pricing SEO" onerror="this.src='https://placehold.co/800x400/1E3A8A/FFFFFF?text=Authority+SEO'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-ca-blue px-2 py-1 rounded shadow-md">Authority SEO</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-ca-blue transition">Ranking for "Transfer Pricing" Safely</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">A blueprint for structuring a compliant, high-converting advisory landing page.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-2-linkedin-ads.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="LinkedIn Ads Strategy" onerror="this.src='https://placehold.co/800x400/1E3A8A/FFFFFF?text=PPC+Strategy'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-ca-blue px-2 py-1 rounded shadow-md">PPC & Ads</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-ca-blue transition">LinkedIn Ads: Targeting CFOs Legally</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">Learn how to bypass gatekeepers and put advisory services in front of decision-makers.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Post 3 -->
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-3-local-seo.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Local Maps Dominance" onerror="this.src='https://placehold.co/800x400/15803D/FFFFFF?text=Local+SEO'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-ca-green px-2 py-1 rounded shadow-md">Local SEO</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-ca-green transition">Local SEO vs. PPC: ROI Breakdown</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">An analytical breakdown of Customer Acquisition Cost for routine GST compliance queries.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Post 4 -->
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-4-content-trap.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Content Strategy" onerror="this.src='https://placehold.co/800x400/dc2626/FFFFFF?text=Content+Strategy'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-alert-red px-2 py-1 rounded shadow-md">Content Strategy</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-alert-red transition">Why Basic Blogs Cost You B2B Leads</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">Why defining "Income Tax" attracts students, but analyzing circulars attracts CFOs.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Post 5 -->
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-5-icai-compliance.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="ICAI Compliance" onerror="this.src='https://placehold.co/800x400/dc2626/FFFFFF?text=Compliance'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-alert-red px-2 py-1 rounded shadow-md">Compliance</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-alert-red transition">5 Superlatives to Delete Today</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">The words that trigger disciplinary notices under the 13th Edition Code of Ethics.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Post 6 -->
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-6-aeo-geo.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="AI Strategy" onerror="this.src='https://placehold.co/800x400/475569/FFFFFF?text=AI+Strategy'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-slate-700 border border-slate-500 px-2 py-1 rounded shadow-md">AI Strategy</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-slate-700 transition">AEO: How AI is Changing CA Search</h4>
+                            <p class="text-xs text-slate-600 mb-4 flex-grow">Structure your firm's technical knowledge so it gets cited by ChatGPT and AI Overviews.</p>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 reveal">
+                <a href="blog.html" class="text-slate-500 hover:text-ca-blue text-sm font-bold transition border-b border-transparent hover:border-ca-blue pb-1">View All Insights &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASTER FOOTER -->
+    <footer class="bg-ca-dark border-t-4 border-ca-blue pt-16 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-10 mb-12 text-center md:text-left">
+                <div class="md:col-span-4">
                     <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
                         <i class="fa-solid fa-chess-knight text-slate-400 text-2xl"></i>
                         <span class="text-xl font-serif font-bold text-white tracking-tight">Tax-tical Brilliance</span>
                     </div>
-                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-sm leading-relaxed">
+                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-xs leading-relaxed">
                         Precision digital growth for Indian Chartered Accountants, fully compliant with the ICAI 13th Edition Code of Ethics. We turn regulatory changes into competitive advantages.
                     </p>
+                    <div class="flex space-x-4 mt-6 justify-center md:justify-start">
+                        <a href="#" class="text-slate-500 hover:text-white transition transform hover:scale-110"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        <a href="#" class="text-slate-500 hover:text-white transition transform hover:scale-110"><i class="fa-solid fa-envelope text-lg"></i></a>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-white font-bold mb-4 tracking-wider uppercase text-[10px]">Our Services</h4>
+                <div class="md:col-span-3">
+                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Growth Engines</h4>
                     <ul class="space-y-2 text-slate-400 text-xs">
-                        <li><a href="seo-services.html" class="hover:text-white transition">Authority SEO Suites</a></li>
-                        <li><a href="ppc-management.html" class="hover:text-white transition">PPC Performance Marketing</a></li>
-                        <li><a href="local-seo.html" class="hover:text-white transition">Local Maps Dominance</a></li>
-                        <li><a href="content-marketing.html" class="hover:text-white transition">Technical Tax Content</a></li>
+                        <li><a href="seo-services.html" class="text-ca-blue transition">Authority SEO</a></li>
+                        <li><a href="ppc-management.html" class="hover:text-white transition">Performance PPC</a></li>
+                        <li><a href="local-seo.html" class="hover:text-white transition">Maps Dominance</a></li>
+                        <li><a href="content-marketing.html" class="hover:text-white transition">Tax Content</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-white font-bold mb-4 tracking-wider uppercase text-[10px]">Company Info</h4>
+                <div class="md:col-span-3">
+                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Agency & Rules</h4>
                     <ul class="space-y-2 text-slate-400 text-xs">
-                        <li><a href="about-us.html" class="hover:text-white transition">Why Us / About</a></li>
-                        <li><a href="index.html#pricing" class="hover:text-white transition">Pricing & ROI</a></li>
-                        <li><a href="compliance-code.html" class="hover:text-white transition">The 2026 Code Manifesto</a></li>
-                        <li><a href="index.html#contact" class="hover:text-white transition">Contact & Booking</a></li>
+                        <li><a href="about-us.html" class="hover:text-white transition">Our Story</a></li>
+                        <li><a href="compliance-code.html" class="hover:text-white transition">The 2026 Code</a></li>
+                        <li><a href="roi-tracker.html" class="hover:text-white transition">ROI Case Studies</a></li>
+                        <li><a href="resources.html" class="hover:text-white transition">Lead Magnets</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Connect</h4>
+                    <ul class="space-y-2 text-slate-400 text-xs">
+                        <li><a href="blog.html" class="hover:text-white transition">Insights Hub</a></li>
+                        <li><a href="contact.html" class="text-ca-green font-bold hover:text-white transition">Book a Call &rarr;</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-slate-500 text-xs text-center md:text-left mb-4 md:mb-0">
-                    &copy; 2026 Tax-tical Brilliance. All rights reserved. <br>
-                    <span class="opacity-50 mt-1 block">Disclaimer: This site is not affiliated with the Institute of Chartered Accountants of India.</span>
-                </p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-slate-500 hover:text-white transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                    <a href="#" class="text-slate-500 hover:text-white transition"><i class="fa-brands fa-twitter text-lg"></i></a>
-                </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-[10px] text-slate-500 uppercase tracking-widest">
+                &copy; 2026 Tax-tical Brilliance. Disclaimer: Not affiliated with ICAI.
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- SCRIPTS -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
+            menu.classList.toggle('hidden');
+        }
+
+        // Bulletproof Javascript FAQ Logic using scrollHeight
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Close others
+                document.querySelectorAll('.faq-content').forEach(otherContent => {
+                    if (otherContent !== content) {
+                        otherContent.style.maxHeight = null;
+                        otherContent.classList.remove('opacity-100');
+                        otherContent.classList.add('opacity-0');
+                    }
+                });
+                
+                document.querySelectorAll('.faq-btn i').forEach(otherIcon => {
+                    if (otherIcon !== icon) {
+                        otherIcon.classList.remove('rotate-180', 'text-ca-blue');
+                    }
+                });
+
+                // Toggle current
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.classList.remove('opacity-100');
+                    content.classList.add('opacity-0');
+                    icon.classList.remove('rotate-180', 'text-ca-blue');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.classList.remove('opacity-0');
+                    content.classList.add('opacity-100');
+                    icon.classList.add('rotate-180', 'text-ca-blue');
+                }
+            });
+        });
+
+        // Scroll Reveal
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) { reveals[i].classList.add("active"); }
             }
         }
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+
+        // Blog Slider Auto-Play Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('insights-slider');
+            const prev = document.getElementById('slider-prev');
+            const next = document.getElementById('slider-next');
+            let idx = 0;
+            let autoPlayInterval;
+
+            if(!track || !prev || !next) return;
+
+            const getPerView = () => window.innerWidth <= 640 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
+
+            const update = () => {
+                const perView = getPerView();
+                const card = track.children[0];
+                if (!card) return;
+                const gap = 32; // 2rem gap
+                track.style.transform = `translateX(-${idx * (card.offsetWidth + gap)}px)`;
+                prev.disabled = idx === 0;
+                next.disabled = idx >= track.children.length - perView;
+            };
+
+            const moveNext = () => {
+                const perView = getPerView();
+                if (idx < track.children.length - perView) {
+                    idx++;
+                } else {
+                    idx = 0; // Loop back
+                }
+                update();
+            };
+
+            const movePrev = () => {
+                if(idx > 0) { idx--; update(); }
+            };
+
+            const startAutoPlay = () => {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(moveNext, 3500); // 3.5 seconds
+            };
+
+            const stopAutoPlay = () => {
+                clearInterval(autoPlayInterval);
+            };
+
+            // Manual controls
+            prev.addEventListener('click', () => { movePrev(); startAutoPlay(); });
+            next.addEventListener('click', () => { moveNext(); startAutoPlay(); });
+            
+            // Pause on hover
+            track.addEventListener('mouseenter', stopAutoPlay);
+            track.addEventListener('mouseleave', startAutoPlay);
+
+            window.addEventListener('resize', () => {
+                const perView = getPerView();
+                if (idx > track.children.length - perView) idx = Math.max(0, track.children.length - perView);
+                update();
+            });
+            
+            // Ensure layout renders before taking offsetWidth
+            setTimeout(() => {
+                update();
+                startAutoPlay();
+            }, 100);
+        });
     </script>
-    <!-- Calendly Script -->
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
 
