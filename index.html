@@ -84,6 +84,10 @@
         @media (max-width: 1024px) { .blog-card { flex: 0 0 calc(50% - 1rem); } }
         @media (max-width: 640px) { .blog-card { flex: 0 0 100%; margin-right: 0; } }
         .slider-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        
+        /* FAQ Accordion Styles */
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: #1E3A8A; }
 
         /* Calculator Styles */
         input[type=range] { -webkit-appearance: none; background: transparent; }
@@ -451,36 +455,36 @@
             <div class="grid md:grid-cols-2 gap-x-10 gap-y-4">
                 <!-- Left Column -->
                 <div class="space-y-3">
-                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal faq-item">
                         <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">1. Does the ICAI really allow SEO and Ads?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
                         </button>
-                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
                             <div class="px-4 pb-4">
                                 <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">Yes. The 13th Edition Code of Ethics distinctly clarifies boundaries. Informational websites for organic discovery (SEO) are permitted. "Push technology" (PPC ads) is now explicitly permitted for <strong>non-exclusive services</strong> (e.g., consultancy, incorporation), provided content is factual and devoid of direct solicitation for audit work.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100 faq-item">
                         <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">2. Why are the On-Page limits strictly capped?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
                         </button>
-                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
                             <div class="px-4 pb-4">
                                 <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">In the financial sector, compliance is paramount. We do not use automated tools to spin hundreds of low-quality pages. We manually review code, rewrite copy to meet Google's strict YMYL (Your Money or Your Life) standards, and run it through our 50-point ICAI Ethics Filter. This manual precision requires significant expert hours.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200 faq-item">
                         <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">3. How long does it realistically take to see an ROI?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
                         </button>
-                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
                             <div class="px-4 pb-4">
                                 <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">If you opt for the PPC Add-on, lead generation for non-exclusive services begins within <strong>7 to 10 days</strong>. For organic Authority SEO (targeting high-ticket B2B relationships), you should expect a compounding build-up over <strong>3 to 6 months</strong> before seeing a major shift in Page 1 rankings and inbound inquiries.</p>
                             </div>
@@ -490,36 +494,36 @@
 
                 <!-- Right Column -->
                 <div class="space-y-3">
-                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal faq-item">
                         <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">4. Who actually writes the Technical Tax Flashes?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
                         </button>
-                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
                             <div class="px-4 pb-4">
                                 <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">We employ a specialized hybrid model. Custom AI scrapers monitor the CBDT, CBIC, and MCA portals daily. Once a notification drops, our senior finance editors (who understand Indian taxation) draft, structure, and verify the analysis to ensure absolute technical accuracy before publishing.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-100 faq-item">
                         <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">5. Can we run direct Google Ads for Statutory Audit?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
                         </button>
-                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
                             <div class="px-4 pb-4">
                                 <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3"><strong>Absolutely not.</strong> Direct solicitation for audit and assurance services remains strictly prohibited. The strategic workaround is running targeted Ads for permitted advisory, due diligence, and bookkeeping services. Excelling in these engagements naturally positions your firm for statutory audits down the line.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200">
+                    <div class="border border-slate-200 rounded-lg bg-white shadow-sm reveal delay-200 faq-item">
                         <button class="faq-btn w-full text-left p-4 hover:bg-slate-50 flex justify-between items-center transition rounded-lg">
                             <h3 class="font-bold text-slate-900 text-sm pr-4">6. Do you require long-term lock-in contracts?</h3>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300 faq-icon"></i>
                         </button>
-                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 opacity-0 faq-answer">
                             <div class="px-4 pb-4">
                                 <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">No. We operate strictly on a professional <strong>month-to-month retainer</strong>. We retain clients based on transparent reporting, consistent execution, and measurable ROI, rather than through restrictive legal agreements.</p>
                             </div>
@@ -584,7 +588,7 @@
         </div>
     </section>
 
-    <!-- DYNAMIC INSIGHTS SLIDER (AT THE BOTTOM OF THE PAGE) -->
+    <!-- DYNAMIC INSIGHTS SLIDER (WITH IMAGES) -->
     <section class="py-16 sm:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-10 reveal">
@@ -604,60 +608,91 @@
 
             <div class="blog-slider-wrapper reveal">
                 <div class="blog-slider-inner" id="insights-slider">
+                    
                     <!-- Post 1 -->
-                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-1-transfer-pricing.html'">
-                        <div class="p-6 flex flex-col flex-grow border-t-4 border-ca-blue">
-                            <span class="text-ca-blue text-[10px] font-bold uppercase tracking-wider mb-2">Authority SEO</span>
-                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">Ranking for "Transfer Pricing" Safely</h4>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-1-transfer-pricing.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Transfer Pricing SEO" onerror="this.src='https://placehold.co/800x400/1E3A8A/FFFFFF?text=Authority+SEO'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-ca-blue px-2 py-1 rounded shadow-md">Authority SEO</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-ca-blue transition">Ranking for "Transfer Pricing" Safely</h4>
                             <p class="text-xs text-slate-600 mb-4 flex-grow">A blueprint for structuring a compliant, high-converting advisory landing page.</p>
-                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
                         </div>
                     </div>
+
                     <!-- Post 2 -->
-                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-2-linkedin-ads.html'">
-                        <div class="p-6 flex flex-col flex-grow border-t-4 border-ca-blue">
-                            <span class="text-ca-blue text-[10px] font-bold uppercase tracking-wider mb-2">PPC & Ads</span>
-                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">LinkedIn Ads: Targeting CFOs Legally</h4>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-2-linkedin-ads.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="LinkedIn Ads Strategy" onerror="this.src='https://placehold.co/800x400/1E3A8A/FFFFFF?text=PPC+Strategy'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-ca-blue px-2 py-1 rounded shadow-md">PPC & Ads</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-ca-blue transition">LinkedIn Ads: Targeting CFOs Legally</h4>
                             <p class="text-xs text-slate-600 mb-4 flex-grow">Learn how to bypass gatekeepers and put advisory services in front of decision-makers.</p>
-                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
                         </div>
                     </div>
+
                     <!-- Post 3 -->
-                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-3-local-seo.html'">
-                        <div class="p-6 flex flex-col flex-grow border-t-4 border-ca-green">
-                            <span class="text-ca-green text-[10px] font-bold uppercase tracking-wider mb-2">Local SEO</span>
-                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">Local SEO vs. PPC: ROI Breakdown</h4>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-3-local-seo.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Local Maps Dominance" onerror="this.src='https://placehold.co/800x400/15803D/FFFFFF?text=Local+SEO'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-ca-green px-2 py-1 rounded shadow-md">Local SEO</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-ca-green transition">Local SEO vs. PPC: ROI Breakdown</h4>
                             <p class="text-xs text-slate-600 mb-4 flex-grow">An analytical breakdown of Customer Acquisition Cost for routine GST compliance queries.</p>
-                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
                         </div>
                     </div>
+
                     <!-- Post 4 -->
-                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-4-content-trap.html'">
-                        <div class="p-6 flex flex-col flex-grow border-t-4 border-alert-red">
-                            <span class="text-alert-red text-[10px] font-bold uppercase tracking-wider mb-2">Content Strategy</span>
-                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">Why Basic Blogs Cost You B2B Leads</h4>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-4-content-trap.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Content Strategy" onerror="this.src='https://placehold.co/800x400/dc2626/FFFFFF?text=Content+Strategy'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-alert-red px-2 py-1 rounded shadow-md">Content Strategy</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-alert-red transition">Why Basic Blogs Cost You B2B Leads</h4>
                             <p class="text-xs text-slate-600 mb-4 flex-grow">Why defining "Income Tax" attracts students, but analyzing circulars attracts CFOs.</p>
-                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
                         </div>
                     </div>
+
                     <!-- Post 5 -->
-                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-5-icai-compliance.html'">
-                        <div class="p-6 flex flex-col flex-grow border-t-4 border-alert-red">
-                            <span class="text-alert-red text-[10px] font-bold uppercase tracking-wider mb-2">Compliance</span>
-                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">5 Superlatives to Delete Today</h4>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-5-icai-compliance.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="ICAI Compliance" onerror="this.src='https://placehold.co/800x400/dc2626/FFFFFF?text=Compliance'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-alert-red px-2 py-1 rounded shadow-md">Compliance</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-alert-red transition">5 Superlatives to Delete Today</h4>
                             <p class="text-xs text-slate-600 mb-4 flex-grow">The words that trigger disciplinary notices under the 13th Edition Code of Ethics.</p>
-                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
                         </div>
                     </div>
+
                     <!-- Post 6 -->
-                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer" onclick="window.location.href='post-6-aeo-geo.html'">
-                        <div class="p-6 flex flex-col flex-grow border-t-4 border-slate-700">
-                            <span class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2">AI Strategy</span>
-                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug">AEO: How AI is Changing CA Search</h4>
+                    <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-6-aeo-geo.html'">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="AI Strategy" onerror="this.src='https://placehold.co/800x400/475569/FFFFFF?text=AI+Strategy'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-slate-700 border border-slate-500 px-2 py-1 rounded shadow-md">AI Strategy</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-lg font-serif font-bold text-slate-900 mb-3 leading-snug group-hover:text-slate-700 transition">AEO: How AI is Changing CA Search</h4>
                             <p class="text-xs text-slate-600 mb-4 flex-grow">Structure your firm's technical knowledge so it gets cited by ChatGPT and AI Overviews.</p>
-                            <span class="text-ca-blue text-[11px] font-bold mt-auto">Read Brief &rarr;</span>
+                            <span class="text-ca-blue text-[11px] font-bold mt-auto flex items-center">Read Brief <i class="fa-solid fa-arrow-right ml-1 text-[9px] group-hover:translate-x-1 transition"></i></span>
                         </div>
                     </div>
+
                 </div>
             </div>
             
@@ -711,7 +746,7 @@
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 text-center text-[10px] text-slate-500 uppercase tracking-widest">
-                &copy; 2026 Tax-tical Brilliance. Not affiliated with ICAI.
+                &copy; 2026 Tax-tical Brilliance. Disclaimer: Not affiliated with ICAI.
             </div>
         </div>
     </footer>
