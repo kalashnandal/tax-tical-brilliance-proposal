@@ -33,7 +33,6 @@
     <style>
         body { scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Subtle Indian Flag Top Border */
         .indian-border-top {
             background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
             height: 4px; width: 100%; position: fixed; top: 0; z-index: 100;
@@ -50,7 +49,6 @@
             box-shadow: 0 12px 24px -5px rgba(15, 23, 42, 0.08);
         }
 
-        /* Dropdown transition */
         .dropdown-menu {
             opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.2s ease;
         }
@@ -58,7 +56,6 @@
             opacity: 1; visibility: visible; transform: translateY(0);
         }
 
-        /* Reveal Animations */
         .reveal {
             opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
@@ -66,7 +63,6 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
 
-        /* Dynamic Blog Slider CSS */
         .blog-slider-wrapper { overflow: hidden; position: relative; padding: 1rem 0 2rem 0; }
         .blog-slider-inner { display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); gap: 2rem; }
         .blog-card { flex: 0 0 calc(33.333% - 1.33rem); min-width: 0; transition: transform 0.4s ease, box-shadow 0.4s ease; }
@@ -75,11 +71,9 @@
         @media (max-width: 640px) { .blog-card { flex: 0 0 100%; margin-right: 0; } }
         .slider-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* Custom image hover effects */
-        .img-hover-zoom { transition: transform 0.7s ease; }
-        .img-container:hover .img-hover-zoom { transform: scale(1.05); }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: #1E3A8A; }
 
-        /* Comparison Table Styling */
         .pricing-table th, .pricing-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
         .pricing-table th { background-color: #f8fafc; font-weight: 700; color: #0F172A; text-align: left; }
         .pricing-table tr:hover td { background-color: #f8fafc; }
@@ -99,7 +93,6 @@
     <nav class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
                 <a href="index.html" class="flex-shrink-0 flex items-center gap-3 group">
                     <i class="fa-solid fa-chess-knight text-ca-blue text-3xl group-hover:text-ca-green transition transform group-hover:scale-110"></i>
                     <div class="flex flex-col">
@@ -108,7 +101,6 @@
                     </div>
                 </a>
                 
-                <!-- Desktop Links -->
                 <div class="hidden lg:flex items-center space-x-7">
                     <div class="relative dropdown-container py-6">
                         <a href="index.html#services" class="text-ca-blue font-bold transition flex items-center gap-1 text-sm border-b-2 border-ca-blue pb-1">
@@ -129,14 +121,12 @@
                     <a href="about-us.html" class="text-slate-600 hover:text-ca-blue font-semibold transition text-sm">Our Story</a>
                 </div>
                 
-                <!-- Desktop CTA -->
                 <div class="hidden md:block">
                     <a href="contact.html" class="bg-ca-blue hover:bg-ca-dark text-white px-6 py-2.5 rounded text-sm font-bold transition shadow-md transform hover:-translate-y-0.5 inline-block">
                         Book Session
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-ca-dark hover:text-ca-blue focus:outline-none p-2 transition" onclick="toggleMobileMenu()">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -145,7 +135,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full max-h-[80vh] overflow-y-auto z-50">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
@@ -166,15 +155,13 @@
         </div>
     </nav>
 
-    <!-- IMMERSIVE HERO SECTION -->
+    <!-- IMMERSIVE HERO SECTION (Image retained as requested) -->
     <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 flex items-center min-h-[65vh] overflow-hidden">
-        <!-- Background Image & Overlays -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
                  alt="Data analytics and SEO dashboard" 
                  class="w-full h-full object-cover object-center"
                  onerror="this.src='https://placehold.co/2000x1000/0F172A/FFFFFF?text=Authority+SEO'">
-            <!-- Double gradient overlay for text legibility -->
             <div class="absolute inset-0 bg-slate-900/75"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-ca-dark via-ca-dark/40 to-transparent"></div>
         </div>
@@ -200,102 +187,104 @@
         </div>
     </section>
 
-    <!-- The YMYL Problem (Image Left, Text Right) -->
+    <!-- The Compliance Barrier (Text & Icon UI Grid, NO In-page Photos) -->
     <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 
-                <!-- Image Left -->
-                <div class="relative reveal order-2 lg:order-1">
-                    <div class="absolute inset-0 bg-alert-red/5 rounded-2xl transform -translate-x-3 translate-y-3"></div>
-                    <div class="img-container relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[450px]">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Legal and compliance documents" 
-                             class="w-full h-full object-cover img-hover-zoom"
-                             onerror="this.src='https://placehold.co/800x600/f8fafc/0F172A?text=Compliance+Documents'">
+                <div class="reveal">
+                    <h2 class="text-xs font-bold text-alert-red uppercase tracking-widest mb-3 flex items-center"><i class="fa-solid fa-triangle-exclamation mr-2"></i> The Compliance Barrier</h2>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-6">Why standard SEO fails CA firms.</h3>
+                    <p class="text-base text-slate-600 mb-6 leading-relaxed">
+                        Google categorizes accounting, legal, and financial websites as <strong>YMYL (Your Money or Your Life)</strong>. Because inaccurate financial advice can ruin a business, Google's algorithms will not rank your firm unless your content demonstrates absolute <strong>E-E-A-T (Expertise, Experience, Authority, Trust)</strong>.
+                    </p>
+                    <p class="text-base text-slate-600 mb-8 leading-relaxed">
+                        When standard marketing agencies try to force rankings, they use outsourced copywriters who don't understand tax law, and they stuff meta tags with superlatives. This triggers a Google penalty for low quality, and an ICAI disciplinary notice for unethical solicitation.
+                    </p>
+                </div>
+                
+                <!-- Premium E-E-A-T UI Box -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 lg:p-10 shadow-inner reveal delay-100">
+                    <h4 class="text-xl font-serif font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">The Tax-tical SEO Mandate</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center mr-4 shrink-0 border border-red-100">
+                                <i class="fa-solid fa-xmark text-alert-red"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-sm">No Outsourced Generalists</h5>
+                                <p class="text-slate-600 text-xs mt-1 leading-relaxed">We utilize finance professionals to ensure deep, technical accuracy that Google algorithms demand.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center mr-4 shrink-0 border border-red-100">
+                                <i class="fa-solid fa-ban text-alert-red"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-sm">Zero Superlatives ("Top", "Best")</h5>
+                                <p class="text-slate-600 text-xs mt-1 leading-relaxed">Comparative claims are hard-coded out of our vocabulary to prevent ICAI professional misconduct notices.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded bg-green-50 flex items-center justify-center mr-4 shrink-0 border border-green-100">
+                                <i class="fa-solid fa-shield-check text-ca-green"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-sm">Strict 13th Edition Adherence</h5>
+                                <p class="text-slate-600 text-xs mt-1 leading-relaxed">All meta-data and on-page copy passes our proprietary 50-point ethics filter before deployment.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Text Right -->
-                <div class="reveal delay-100 order-1 lg:order-2">
-                    <h2 class="text-sm font-bold text-alert-red uppercase tracking-widest mb-3 flex items-center"><i class="fa-solid fa-triangle-exclamation mr-2"></i> The Compliance Barrier</h2>
-                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-6">Why standard SEO fails CA firms.</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed text-sm">
-                        Google categorizes accounting, legal, and financial websites as <strong>YMYL (Your Money or Your Life)</strong>. Because inaccurate financial advice can ruin a business, Google's algorithms will not rank your firm unless your content demonstrates absolute <strong>E-E-A-T (Expertise, Experience, Authority, Trust)</strong>.
-                    </p>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-sm">
-                        When standard marketing agencies try to force rankings, they use outsourced copywriters who don't understand tax law, and they stuff meta tags with words like <em>"Best CA Firm."</em> This triggers a Google penalty for low quality, and an ICAI disciplinary notice for unethical solicitation.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-xmark text-alert-red mt-1 mr-3"></i>
-                            <span class="text-sm font-bold text-slate-700">No outsourced generalist copywriters.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-xmark text-alert-red mt-1 mr-3"></i>
-                            <span class="text-sm font-bold text-slate-700">No non-compliant superlatives ("Top," "Best").</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-check text-ca-green mt-1 mr-3"></i>
-                            <span class="text-sm font-bold text-slate-700">Strict adherence to the 2026 Code of Ethics.</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Hub and Spoke Architecture (Text Left, Image Right) -->
+    <!-- Hub and Spoke Architecture (3-Column Premium Grid, NO In-page Photos) -->
     <section id="architecture" class="py-16 lg:py-24 bg-slate-50 bg-grid border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
-                <!-- Text Left -->
-                <div class="reveal">
-                    <h2 class="text-sm font-bold text-ca-blue uppercase tracking-widest mb-3">Our Methodology</h2>
-                    <h3 class="text-3xl font-serif font-bold text-slate-900 mb-6">The Hub & Spoke Architecture</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed text-sm">
-                        Instead of a single, flat "Services" page, we engineer deeply siloes technical architectures. We build highly authoritative "Hub" landing pages for complex services (e.g., Transfer Pricing, Virtual CFO, Internal Audit).
-                    </p>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-sm">
-                        We then support those hubs with "Spokes"—rapid-response Technical Tax Flashes that analyze recent CBDT/MCA circulars. These spokes funnel algorithmic link-equity to your service pages, commanding absolute domain authority.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-start gap-4">
-                            <div class="w-10 h-10 bg-blue-50 text-ca-blue rounded flex items-center justify-center font-bold shrink-0">
-                                <i class="fa-solid fa-code"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-sm">JSON-LD Schema Markup</h4>
-                                <p class="text-xs text-slate-500 mt-1">We hardcode <code>ProfessionalService</code> and <code>FAQPage</code> schema directly into your site, feeding perfect data to AI engines and Google crawlers.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-start gap-4">
-                            <div class="w-10 h-10 bg-green-50 text-ca-green rounded flex items-center justify-center font-bold shrink-0">
-                                <i class="fa-solid fa-bolt"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-sm">Core Web Vitals Optimization</h4>
-                                <p class="text-xs text-slate-500 mt-1">Sub-second load times and zero layout shifts. We ensure your digital presence is as fast and professional as an enterprise application.</p>
-                            </div>
-                        </div>
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-xs font-bold text-ca-blue uppercase tracking-widest mb-3">Our Methodology</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">The Hub & Spoke Architecture</h3>
+                <p class="text-base text-slate-600 leading-relaxed">
+                    Instead of a flat "Services" page, we engineer deeply siloes technical architectures. We build authoritative "Hub" pages for complex services, supported by technical "Spokes" that command absolute domain authority.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-xl feature-card transition shadow-sm reveal">
+                    <div class="w-14 h-14 bg-blue-50 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-2xl border border-blue-100">
+                        <i class="fa-solid fa-sitemap"></i>
                     </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">Core Service Hubs</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Dedicated, exhaustively factual landing pages for high-ticket services (e.g., Transfer Pricing, Virtual CFO). These pages map directly to specific B2B search intent while remaining purely informational.
+                    </p>
                 </div>
 
-                <!-- Image Right -->
-                <div class="relative reveal delay-200">
-                    <div class="absolute inset-0 bg-ca-blue/5 rounded-2xl transform rotate-2"></div>
-                    <div class="img-container relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-[550px]">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Architecture and network strategy" 
-                             class="w-full h-full object-cover img-hover-zoom"
-                             onerror="this.src='https://placehold.co/800x600/f8fafc/0F172A?text=Technical+Architecture'">
-                        <!-- Soft overlay -->
-                        <div class="absolute inset-0 bg-ca-dark/10"></div>
+                <!-- Pillar 2 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-xl feature-card transition shadow-sm reveal delay-100">
+                    <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-6 text-2xl border border-slate-200">
+                        <i class="fa-solid fa-newspaper"></i>
                     </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">Technical Spokes</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Rapid-response "Technical Tax Flashes" analyzing recent CBDT/MCA circulars. These highly specific articles link directly back to your Core Hubs, passing immense algorithmic link-equity.
+                    </p>
                 </div>
 
+                <!-- Pillar 3 -->
+                <div class="bg-ca-dark border border-slate-700 p-8 rounded-xl feature-card transition shadow-md reveal delay-200 text-white">
+                    <div class="w-14 h-14 bg-slate-800 text-ca-green rounded-lg flex items-center justify-center mb-6 text-2xl border border-slate-600">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 font-serif">Schema & Web Vitals</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        We hardcode <code>ProfessionalService</code> and <code>FAQPage</code> JSON-LD schema into your site to feed AI engines, while ensuring sub-second load times to pass Google's strict Core Web Vitals.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -390,7 +379,7 @@
         </div>
     </section>
 
-    <!-- SEO Specific FAQs -->
+    <!-- SEO Specific FAQs (Fixed Bulletproof Accordion) -->
     <section id="faq" class="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -472,7 +461,7 @@
         </div>
     </section>
 
-    <!-- DYNAMIC INSIGHTS SLIDER -->
+    <!-- DYNAMIC INSIGHTS SLIDER (WITH IMAGES) -->
     <section class="py-16 sm:py-24 bg-white relative overflow-hidden border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-10 reveal">
@@ -492,7 +481,6 @@
 
             <div class="blog-slider-wrapper reveal">
                 <div class="blog-slider-inner" id="insights-slider">
-                    
                     <!-- Post 1 -->
                     <div class="blog-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer interactive-card group" onclick="window.location.href='post-1-transfer-pricing.html'">
                         <div class="h-48 overflow-hidden relative">
