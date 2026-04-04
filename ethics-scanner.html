@@ -672,15 +672,18 @@
                 await addLog(logMessages[i], 700 + (Math.random() * 600));
             }
 
-            // Real API Call Integration
+                        // Real API Call Integration
             const apiKey = "AIzaSyC6hA0fYIxA3XOPtPtNdjbafwrOCL7MMn4"; 
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            // FIX 1: Use the standard, stable public Gemini endpoint
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             
             const prompt = `Analyze the website URL: ${urlInput} belonging to CA firm partner ${nameInput}. Conduct a simulated ICAI 13th Edition Code of Ethics compliance audit. If you cannot access the live site perfectly, perform a highly realistic, simulated compliance audit based on the URL name and standard industry violations for Indian CA firms. Look for superlatives, missing disclaimers, and YMYL schema issues.`;
 
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
-                tools: [{ "google_search": {} }],
+                // FIX 2: Correct public syntax for Google Search Grounding
+                tools: [{ googleSearch: {} }],
                 systemInstruction: { parts: [{ text: "You are an expert ICAI compliance auditor and enterprise SEO analyst. Return ONLY valid JSON matching the schema." }] },
                 generationConfig: {
                     responseMimeType: "application/json",
@@ -715,22 +718,33 @@
             try {
                 if (!apiKey) throw new Error("No API Key");
                 
-                const responseData = await fetchWithRetry(endpoint, {
+                // Fetch without the complex retry wrapper to get clear error messages
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
                 
+                const responseData = await response.json();
+                
+                // FIX 3: Catch exact API errors from Google and log them to the console
+                if (!response.ok) {
+                    console.error("GOOGLE API REJECTED THE REQUEST. Details:", responseData);
+                    throw new Error(responseData.error?.message || "Google API Error");
+                }
+
                 const rawText = responseData.candidates?.[0]?.content?.parts?.[0]?.text;
                 if(rawText) {
                     resultData = JSON.parse(rawText);
                 } else {
-                    throw new Error("Empty Response");
+                    throw new Error("Empty Response from Gemini");
                 }
             } catch(err) {
-                console.warn("API Scrape failed/timed out. Reverting to Probabilistic Generation based on URL...", err);
+                console.error("CRITICAL SCANNER ERROR:", err.message);
+                console.warn("Reverting to Probabilistic Generation based on URL due to API failure.");
                 resultData = generateProbabilisticReport(urlInput);
             }
+
 
             // --- BUILD THE DASHBOARD UI ---
             scanLine.style.display = 'none';
