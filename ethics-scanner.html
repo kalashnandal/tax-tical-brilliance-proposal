@@ -24,64 +24,30 @@
                         'sans': ['Inter', 'sans-serif'],
                         'serif': ['Merriweather', 'serif'],
                         'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
-                    },
-                    animation: {
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body { scroll-behavior: smooth; overflow-x: hidden; background-color: #0F172A; }
-        
-        .indian-border-top {
-            background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
-            height: 4px; width: 100%; position: fixed; top: 0; z-index: 100;
-        }
-
-        .bg-grid-dark {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
-        /* Dropdown transition */
+        .indian-border-top { background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%); height: 4px; width: 100%; position: fixed; top: 0; z-index: 100; }
+        .bg-grid-dark { background-size: 40px 40px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px); }
         .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.2s ease; }
         .dropdown-container:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-
-        /* Terminal Scanner Styles */
         .terminal-box { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .scan-line { border-bottom: 2px solid rgba(220, 38, 38, 0.8); width: 100%; position: absolute; left: 0; animation: scanAnim 2s linear infinite; z-index: 10; box-shadow: 0 0 20px rgba(220, 38, 38, 1); display: none; }
-        
-        @keyframes scanAnim {
-            0% { top: 0; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-
-        /* Custom Scrollbar */
+        @keyframes scanAnim { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-
-        /* Gauge Animation */
         .gauge-circle { transition: stroke-dashoffset 1.5s ease-out; }
-
         .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -5px rgba(15, 23, 42, 0.08); }
-        
-        /* FAQ Accordion Styles */
         .faq-icon { transition: transform 0.3s ease; }
         .faq-item.active .faq-icon { transform: rotate(180deg); color: #1E3A8A; }
     </style>
@@ -90,7 +56,7 @@
 
     <div class="indian-border-top"></div>
 
-    <!-- MASTER HEADER (Dark Variant) -->
+    <!-- MASTER HEADER -->
     <nav class="sticky top-0 w-full z-40 bg-ca-dark/95 backdrop-blur-md border-b border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -171,9 +137,9 @@
                         <div class="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
                     <div class="text-xs text-slate-500 font-mono flex items-center">
-                        <i class="fa-solid fa-lock mr-2"></i> Tax-tical Compliance Engine v2.4
+                        <i class="fa-solid fa-lock mr-2"></i> Tax-tical Compliance Engine v2.5
                     </div>
-                    <div class="w-10"></div> <!-- spacer -->
+                    <div class="w-10"></div> 
                 </div>
 
                 <div id="scanLine" class="scan-line"></div>
@@ -215,22 +181,17 @@
                         <div><i id="engineIcon" class="fa-solid fa-circle-notch fa-spin mr-3"></i> <span id="engineStatus">Engine Active & Crawling</span></div>
                         <button id="resetBtn" onclick="resetScanner()" class="hidden bg-slate-700 hover:bg-slate-600 text-white px-3 py-1 text-[10px] rounded transition">Edit & Restart</button>
                     </div>
-                    <div id="terminalLogs" class="terminal-logs flex-grow overflow-y-auto font-mono text-sm text-slate-400 space-y-3 pb-4">
-                        <!-- Logs injected via JS -->
-                    </div>
+                    <div id="terminalLogs" class="terminal-logs flex-grow overflow-y-auto font-mono text-sm text-slate-400 space-y-3 pb-4"></div>
                 </div>
 
                 <!-- STATE 3: Detailed Results Dashboard -->
                 <div id="state-results" class="hidden flex-col bg-slate-900">
-                    <!-- Dashboard Header -->
                     <div class="p-8 border-b border-slate-700 bg-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div>
                             <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-1">Target Analyzed</p>
                             <h2 id="resUrl" class="text-xl md:text-2xl font-mono font-bold text-white break-all"></h2>
                             <p id="resPartner" class="text-sm text-slate-400 mt-1"></p>
                         </div>
-                        
-                        <!-- Risk Score Gauge -->
                         <div class="flex items-center gap-4 bg-slate-900 p-4 rounded-xl border border-slate-700 shadow-inner">
                             <div class="relative w-20 h-20">
                                 <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 100 100">
@@ -244,16 +205,12 @@
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Status</p>
-                                <div id="resBadge" class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-alert-red text-white text-center">
-                                    CRITICAL
-                                </div>
+                                <div id="resBadge" class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-alert-red text-white text-center">CRITICAL</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8 grid lg:grid-cols-3 gap-8">
-                        
-                        <!-- Main Summary & Violations (Left 2 cols) -->
                         <div class="lg:col-span-2 space-y-8">
                             <div>
                                 <h3 class="text-sm font-bold text-white uppercase tracking-widest border-b border-slate-700 pb-2 mb-4 flex items-center"><i class="fa-solid fa-file-contract mr-2 text-ca-blue"></i> Executive Summary</h3>
@@ -261,13 +218,10 @@
                             </div>
                             <div>
                                 <h3 class="text-sm font-bold text-alert-red uppercase tracking-widest border-b border-slate-700 pb-2 mb-4 flex items-center"><i class="fa-solid fa-triangle-exclamation mr-2"></i> Flagged Violations</h3>
-                                <div class="space-y-4" id="violationsContainer">
-                                    <!-- Cards injected by JS -->
-                                </div>
+                                <div class="space-y-4" id="violationsContainer"></div>
                             </div>
                         </div>
 
-                        <!-- Technical & YMYL (Right 1 col) -->
                         <div class="space-y-8">
                             <div class="bg-slate-800 rounded-xl border border-slate-600 p-6 shadow-lg">
                                 <h3 class="text-xs font-bold text-white uppercase tracking-widest border-b border-slate-600 pb-2 mb-4 flex items-center"><i class="fa-brands fa-google mr-2 text-slate-400"></i> Google YMYL Status</h3>
@@ -280,7 +234,7 @@
                                 <div class="absolute -right-4 -top-4 text-6xl text-white opacity-10"><i class="fa-solid fa-shield-halved"></i></div>
                                 <h3 class="text-white font-serif font-bold text-lg mb-2 relative z-10">Remediation Required</h3>
                                 <p class="text-xs text-blue-200 mb-6 relative z-10 leading-relaxed">
-                                    These flagged items pose an active risk to your Certificate of Practice. Schedule a technical review with our compliance strategists to architect a compliant, high-converting framework.
+                                    These flagged items pose an active risk to your Certificate of Practice. Schedule a technical review with our compliance strategists.
                                 </p>
                                 <a href="contact.html" class="block w-full bg-white text-ca-blue font-bold text-center py-3 rounded shadow-lg hover:bg-slate-100 transition relative z-10 text-sm">
                                     Book Strategy Session
@@ -289,12 +243,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ANATOMY OF A VIOLATION (NEW SECTION) -->
+    <!-- ANATOMY SECTION -->
     <section class="py-16 lg:py-24 bg-white text-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
@@ -304,92 +257,35 @@
                     Most CA firms don't intentionally violate the code. The violations occur when standard marketing agencies try to force SEO rankings using generic retail tactics. Here is what our engine scans for:
                 </p>
             </div>
-
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm reveal">
-                    <div class="w-14 h-14 bg-red-50 text-alert-red rounded-lg flex items-center justify-center mb-6 text-2xl border border-red-100">
-                        <i class="fa-solid fa-text-slash"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-red-50 text-alert-red rounded-lg flex items-center justify-center mb-6 text-2xl border border-red-100"><i class="fa-solid fa-text-slash"></i></div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">Comparative Superlatives</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Words like "Best", "Top", "Leading", or "No. 1" are strictly prohibited. They imply superiority over other ICAI members, which constitutes professional misconduct under the First Schedule.
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Words like "Best", "Top", "Leading", or "No. 1" are strictly prohibited. They imply superiority over other ICAI members.</p>
                 </div>
-
-                <!-- Pillar 2 -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm reveal delay-100">
-                    <div class="w-14 h-14 bg-red-50 text-alert-red rounded-lg flex items-center justify-center mb-6 text-2xl border border-red-100">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-red-50 text-alert-red rounded-lg flex items-center justify-center mb-6 text-2xl border border-red-100"><i class="fa-solid fa-handshake-angle"></i></div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">Audit Solicitation</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        While the 2026 rules allow "Push Technology" for advisory services, directly soliciting Statutory Audit or Assurance work via digital platforms remains an immediate, flaggable offense.
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Directly soliciting Statutory Audit or Assurance work via digital platforms remains an immediate, flaggable offense.</p>
                 </div>
-
-                <!-- Pillar 3 -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm reveal delay-200">
-                    <div class="w-14 h-14 bg-blue-50 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-2xl border border-blue-100">
-                        <i class="fa-brands fa-google"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-blue-50 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-2xl border border-blue-100"><i class="fa-brands fa-google"></i></div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">YMYL Failures</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        While not an ICAI violation, failing Google's Your Money or Your Life (YMYL) standards destroys your traffic. We scan for missing E-E-A-T Schema and authoritative entity linking.
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Failing Google's Your Money or Your Life (YMYL) standards destroys traffic. We scan for missing E-E-A-T Schema.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- MASTER FOOTER -->
-    <footer class="bg-ca-dark border-t-4 border-ca-blue pt-16 pb-8 relative z-10 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-12 gap-10 mb-12 text-center md:text-left">
-                <div class="md:col-span-4">
-                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
-                        <i class="fa-solid fa-chess-knight text-slate-400 text-2xl"></i>
-                        <span class="text-xl font-serif font-bold text-white tracking-tight">Tax-tical Brilliance</span>
-                    </div>
-                    <p class="text-slate-400 text-xs mx-auto md:mx-0 max-w-xs leading-relaxed">
-                        Precision digital growth for Indian Chartered Accountants, fully compliant with the ICAI 13th Edition Code of Ethics. We turn regulatory changes into competitive advantages.
-                    </p>
-                </div>
-                <div class="md:col-span-3">
-                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Growth Engines</h4>
-                    <ul class="space-y-2 text-slate-400 text-xs">
-                        <li><a href="seo-services.html" class="hover:text-white transition">Authority SEO</a></li>
-                        <li><a href="ppc-management.html" class="hover:text-white transition">Performance PPC</a></li>
-                        <li><a href="local-seo.html" class="hover:text-white transition">Maps Dominance</a></li>
-                        <li><a href="content-marketing.html" class="hover:text-white transition">Tax Content</a></li>
-                    </ul>
-                </div>
-                <div class="md:col-span-3">
-                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Agency & Rules</h4>
-                    <ul class="space-y-2 text-slate-400 text-xs">
-                        <li><a href="about-us.html" class="hover:text-white transition">Our Story</a></li>
-                        <li><a href="compliance-code.html" class="hover:text-white transition">The 2026 Code</a></li>
-                        <li><a href="roi-tracker.html" class="hover:text-white transition">ROI Case Studies</a></li>
-                        <li><a href="resources.html" class="hover:text-white transition">Lead Magnets</a></li>
-                    </ul>
-                </div>
-                <div class="md:col-span-2">
-                    <h4 class="text-white font-bold mb-4 uppercase text-[10px] tracking-widest">Connect</h4>
-                    <ul class="space-y-2 text-slate-400 text-xs">
-                        <li><a href="blog.html" class="hover:text-white transition">Insights Hub</a></li>
-                        <li><a href="contact.html" class="text-ca-green font-bold hover:text-white transition">Book a Call &rarr;</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-8 text-center text-[10px] text-slate-500 uppercase tracking-widest">
-                &copy; 2026 Tax-tical Brilliance. Disclaimer: Not affiliated with ICAI.
-            </div>
+    <footer class="bg-ca-dark border-t-4 border-ca-blue pt-16 pb-8 mt-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest">&copy; 2026 Tax-tical Brilliance. Disclaimer: Not affiliated with ICAI.</p>
         </div>
     </footer>
 
-    <!-- SCRIPTS & API LOGIC -->
+    <!-- SCRIPTS -->
     <script>
-        // Scroll Reveal
         function revealOnScroll() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -418,7 +314,6 @@
             stateLoading.classList.remove('flex');
             stateForm.classList.remove('hidden');
             document.getElementById('scanner-header').classList.remove('hidden');
-            
             logBox.innerHTML = '';
             resetBtn.classList.add('hidden');
             engineIcon.className = "fa-solid fa-circle-notch fa-spin mr-3 text-ca-blue";
@@ -426,12 +321,12 @@
             engineStatus.classList.remove('text-alert-red');
         }
 
-        function addLog(msg, delay, type = "info") {
+        function addLog(msg, delay, type="info") {
             return new Promise(resolve => {
                 setTimeout(() => {
                     const p = document.createElement('p');
-                    if (type === "error") {
-                        p.innerHTML = `<span class="text-alert-red font-bold">[ERROR]</span> <span class="text-red-400 bg-red-950/50 px-1 font-bold">${msg}</span>`;
+                    if(type === "error") {
+                        p.innerHTML = `<span class="text-alert-red font-bold">[FATAL ERROR]</span> <span class="text-red-400 bg-red-950/50 px-1 font-bold">${msg}</span>`;
                     } else if (type === "warn") {
                         p.innerHTML = `<span class="text-yellow-500 font-bold">[WARN]</span> <span class="text-yellow-400">${msg}</span>`;
                     } else {
@@ -461,21 +356,14 @@
             await addLog("Bypassing cache to retrieve live DOM...", 600);
             await addLog("Establishing secure handshake with Gemini AI...", 800);
 
-            // API Configuration with Auto-Switching Models
+            // FIXED API INTEGRATION
             const apiKey = "AIzaSyC6hA0fYIxA3XOPtPtNdjbafwrOCL7MMn4"; 
-            const modelsToTry = [
-                "gemini-2.0-flash",           // Primary target
-                "gemini-1.5-flash-latest",    // Fallback 1
-                "gemini-1.5-flash",           // Fallback 2
-                "gemini-2.5-flash-preview-09-2025" // Fallback 3 (Canvas default)
-            ];
-
-            const prompt = `Analyze the website URL: ${urlInput} belonging to CA firm partner ${nameInput}. Conduct a simulated ICAI 13th Edition Code of Ethics compliance audit. Look for superlatives, missing disclaimers, and YMYL schema issues. Search the web for context on this URL if needed.`;
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            
+            const prompt = `You are an expert ICAI compliance auditor. Conduct a simulated website ethics audit for the CA firm website at URL: ${urlInput} belonging to partner ${nameInput}. Analyze standard structural flaws common to Indian CA firms regarding superlatives, disclaimers, and YMYL schema. Return ONLY valid JSON.`;
 
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
-                tools: [{ googleSearch: {} }], // Google Search Grounding Re-enabled
-                systemInstruction: { parts: [{ text: "You are an expert ICAI compliance auditor and SEO analyst. Return ONLY valid JSON matching the exact schema provided. Do not use markdown blocks." }] },
                 generationConfig: {
                     responseMimeType: "application/json",
                     responseSchema: {
@@ -505,121 +393,115 @@
             };
 
             let resultData;
-            let success = false;
 
-            // Loop through models until one works
-            for (let i = 0; i < modelsToTry.length; i++) {
-                const currentModel = modelsToTry[i];
-                await addLog(`Attempting connection via ${currentModel}...`, 400);
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
                 
-                try {
-                    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent?key=${apiKey}`;
-                    const response = await fetch(endpoint, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
+                const responseData = await response.json();
+                
+                if (!response.ok) {
+                    scanLine.style.display = 'none';
+                    engineIcon.className = "fa-solid fa-triangle-exclamation text-alert-red mr-3";
+                    engineStatus.innerText = "Engine Failure";
+                    engineStatus.classList.add('text-alert-red');
                     
-                    const responseData = await response.json();
-                    
-                    if (response.ok) {
-                        const rawText = responseData.candidates?.[0]?.content?.parts?.[0]?.text;
-                        if(rawText) {
-                            await addLog(`Connection established via ${currentModel}. Parsing payload...`, 800);
-                            resultData = JSON.parse(rawText);
-                            success = true;
-                            break; // Exit the loop if successful
-                        }
-                    } else {
-                        // If this specific model fails, log it and move to the next one in the loop
-                        await addLog(`Model ${currentModel} rejected or unavailable.`, 200, "warn");
-                        
-                        // If it's the very last model in the array and it STILL failed, throw the final error
-                        if (i === modelsToTry.length - 1) {
-                            const errMessage = responseData.error?.message || "Unknown API Failure";
-                            throw new Error(errMessage);
-                        }
-                    }
-                } catch (err) {
-                    if (i === modelsToTry.length - 1) {
-                        // Final Failure Catch
-                        scanLine.style.display = 'none';
-                        engineIcon.className = "fa-solid fa-triangle-exclamation text-alert-red mr-3";
-                        engineStatus.innerText = "API Authentication Failure";
-                        engineStatus.classList.add('text-alert-red');
+                    const errCode = responseData.error?.code || response.status;
+                    const errMessage = responseData.error?.message || "Unknown Failure";
 
-                        await addLog(`ALL MODELS REJECTED.`, 200, "error");
-                        await addLog(`Final Error: ${err.message}`, 200, "error");
-                        await addLog(`Please check your Google Cloud Console to ensure billing is active and the API key is unrestricted.`, 400, "warn");
-                        
-                        resetBtn.classList.remove('hidden');
-                        return; // Halt execution
-                    }
+                    await addLog(`API CONNECTION REFUSED BY GOOGLE CLOUD`, 200, "error");
+                    await addLog(`Status: ${errCode}`, 200, "error");
+                    await addLog(`Message: ${errMessage}`, 200, "error");
+                    await addLog(`Fix: Ensure your API key is correct and valid for gemini-1.5-flash.`, 400, "warn");
+                    
+                    resetBtn.classList.remove('hidden');
+                    return; 
                 }
+
+                const rawText = responseData.candidates?.[0]?.content?.parts?.[0]?.text;
+                if(rawText) {
+                    await addLog("AI Audit complete. Parsing JSON payload...", 800);
+                    resultData = JSON.parse(rawText);
+                } else {
+                    throw new Error("Empty Response from Gemini");
+                }
+
+            } catch(err) {
+                scanLine.style.display = 'none';
+                engineIcon.className = "fa-solid fa-triangle-exclamation text-alert-red mr-3";
+                engineStatus.innerText = "System Exception";
+                engineStatus.classList.add('text-alert-red');
+
+                await addLog(`Javascript Exception: ${err.message}`, 200, "error");
+                resetBtn.classList.remove('hidden');
+                return;
             }
 
-            // --- IF SUCCESSFUL, SHOW DASHBOARD ---
-            if (success && resultData) {
-                scanLine.style.display = 'none';
-                stateLoading.classList.remove('flex');
-                stateLoading.classList.add('hidden');
-                stateResults.classList.remove('hidden');
-                stateResults.classList.add('flex');
+            await new Promise(resolve => setTimeout(resolve, 1500));
 
-                document.getElementById('resUrl').innerText = urlInput;
-                document.getElementById('resPartner').innerText = `Live Report for: ${nameInput}`;
-                
-                document.getElementById('resSummary').innerText = resultData.executiveSummary;
-                document.getElementById('resYMYL').innerText = resultData.ymylStatus;
-                
-                const schemaBadge = document.getElementById('resSchema');
-                if(resultData.schemaFound) {
-                    schemaBadge.innerText = "DETECTED"; schemaBadge.className = "font-bold text-ca-green";
-                } else {
-                    schemaBadge.innerText = "MISSING"; schemaBadge.className = "font-bold text-alert-red";
-                }
+            // Display Results
+            scanLine.style.display = 'none';
+            stateLoading.classList.remove('flex');
+            stateLoading.classList.add('hidden');
+            stateResults.classList.remove('hidden');
+            stateResults.classList.add('flex');
 
-                document.getElementById('resScore').innerText = resultData.riskScore;
-                const gauge = document.getElementById('gaugeCircle');
-                const badge = document.getElementById('resBadge');
-                
-                const offset = 251.2 - ((resultData.riskScore / 100) * 251.2);
-                setTimeout(() => { gauge.style.strokeDashoffset = offset; }, 100);
+            document.getElementById('resUrl').innerText = urlInput;
+            document.getElementById('resPartner').innerText = `Live Report for: ${nameInput}`;
+            
+            document.getElementById('resSummary').innerText = resultData.executiveSummary;
+            document.getElementById('resYMYL').innerText = resultData.ymylStatus;
+            
+            const schemaBadge = document.getElementById('resSchema');
+            if(resultData.schemaFound) {
+                schemaBadge.innerText = "DETECTED"; schemaBadge.className = "font-bold text-ca-green";
+            } else {
+                schemaBadge.innerText = "MISSING"; schemaBadge.className = "font-bold text-alert-red";
+            }
 
-                if(resultData.riskScore > 70) {
-                    gauge.classList.replace('text-alert-red', 'text-risk-high');
-                    badge.className = "px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-risk-high text-white shadow-[0_0_15px_rgba(153,27,27,0.8)]";
-                    badge.innerText = "CRITICAL RISK";
-                } else if (resultData.riskScore > 30) {
-                    gauge.classList.replace('text-alert-red', 'text-risk-med');
-                    badge.className = "px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-risk-med text-white border border-orange-500";
-                    badge.innerText = "MEDIUM RISK";
-                } else {
-                    gauge.classList.replace('text-alert-red', 'text-risk-low');
-                    badge.className = "px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-risk-low text-white border border-green-500";
-                    badge.innerText = "LOW RISK";
-                }
+            document.getElementById('resScore').innerText = resultData.riskScore;
+            const gauge = document.getElementById('gaugeCircle');
+            const badge = document.getElementById('resBadge');
+            
+            const offset = 251.2 - ((resultData.riskScore / 100) * 251.2);
+            setTimeout(() => { gauge.style.strokeDashoffset = offset; }, 100);
 
-                const container = document.getElementById('violationsContainer');
-                container.innerHTML = '';
-                
-                if (resultData.violations && resultData.violations.length > 0) {
-                    resultData.violations.forEach(v => {
-                        const card = document.createElement('div');
-                        card.className = "bg-slate-800/80 border border-slate-700 rounded-lg p-4 hover:border-red-900 transition";
-                        card.innerHTML = `
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-xs font-mono font-bold text-red-400 bg-red-950/50 px-2 py-0.5 rounded border border-red-900/50">Location: ${v.element}</span>
-                                <span class="text-[9px] text-slate-500 uppercase"><i class="fa-solid fa-book mr-1"></i> ${v.rule}</span>
-                            </div>
-                            <p class="text-sm font-bold text-white mb-2">${v.issue}</p>
-                            <p class="text-xs text-slate-400 border-t border-slate-700 pt-2"><span class="text-ca-green font-bold mr-1">Required Fix:</span> ${v.fix}</p>
-                        `;
-                        container.appendChild(card);
-                    });
-                } else {
-                    container.innerHTML = `<div class="p-4 text-ca-green border border-green-900 bg-green-950/20 rounded-lg"><i class="fa-solid fa-check-circle mr-2"></i> No overt violations detected.</div>`;
-                }
+            if(resultData.riskScore > 70) {
+                gauge.classList.replace('text-alert-red', 'text-risk-high');
+                badge.className = "px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-risk-high text-white shadow-[0_0_15px_rgba(153,27,27,0.8)]";
+                badge.innerText = "CRITICAL RISK";
+            } else if (resultData.riskScore > 30) {
+                gauge.classList.replace('text-alert-red', 'text-risk-med');
+                badge.className = "px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-risk-med text-white border border-orange-500";
+                badge.innerText = "MEDIUM RISK";
+            } else {
+                gauge.classList.replace('text-alert-red', 'text-risk-low');
+                badge.className = "px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-risk-low text-white border border-green-500";
+                badge.innerText = "LOW RISK";
+            }
+
+            const container = document.getElementById('violationsContainer');
+            container.innerHTML = '';
+            
+            if (resultData.violations && resultData.violations.length > 0) {
+                resultData.violations.forEach(v => {
+                    const card = document.createElement('div');
+                    card.className = "bg-slate-800/80 border border-slate-700 rounded-lg p-4";
+                    card.innerHTML = `
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-mono font-bold text-red-400 bg-red-950/50 px-2 py-0.5 rounded border border-red-900/50">Location: ${v.element}</span>
+                            <span class="text-[9px] text-slate-500 uppercase"><i class="fa-solid fa-book mr-1"></i> ${v.rule}</span>
+                        </div>
+                        <p class="text-sm font-bold text-white mb-2">${v.issue}</p>
+                        <p class="text-xs text-slate-400 border-t border-slate-700 pt-2"><span class="text-ca-green font-bold mr-1">Required Fix:</span> ${v.fix}</p>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                container.innerHTML = `<div class="p-4 text-ca-green border border-green-900 bg-green-950/20 rounded-lg"><i class="fa-solid fa-check-circle mr-2"></i> No overt violations detected.</div>`;
             }
         });
     </script>
