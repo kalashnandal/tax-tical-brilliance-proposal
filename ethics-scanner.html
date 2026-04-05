@@ -357,7 +357,7 @@
             await addLog("Establishing secure handshake with Gemini AI...", 800);
 
             // FIXED API INTEGRATION
-            const apiKey = "AIzaSyC6hA0fYIxA3XOPtPtNdjbafwrOCL7MMn4"; 
+            const apiKey = "AIzaSyBgmRntn4oOai_KZEb_-tbZWs62g6iGQoc"; 
             const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             
             const prompt = `You are an expert ICAI compliance auditor. Conduct a simulated website ethics audit for the CA firm website at URL: ${urlInput} belonging to partner ${nameInput}. Analyze standard structural flaws common to Indian CA firms regarding superlatives, disclaimers, and YMYL schema. Return ONLY valid JSON.`;
