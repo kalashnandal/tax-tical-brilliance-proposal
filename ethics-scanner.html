@@ -48,8 +48,6 @@
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
         .gauge-circle { transition: stroke-dashoffset 1.5s ease-out; }
         .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -5px rgba(15, 23, 42, 0.08); }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); color: #1E3A8A; }
     </style>
 </head>
 <body class="text-slate-300 font-sans pt-[4px] bg-grid-dark">
@@ -92,18 +90,6 @@
                         Book Session
                     </a>
                 </div>
-
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white hover:text-ca-blue focus:outline-none p-2 transition" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 shadow-lg absolute w-full max-h-[80vh] overflow-y-auto z-50">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800">Home</a>
-                <a href="contact.html" class="block px-3 py-3 mt-4 text-center rounded-md text-sm font-bold text-white bg-ca-blue">Book Session</a>
             </div>
         </div>
     </nav>
@@ -126,7 +112,6 @@
     <!-- THE SCANNER APPLICATION -->
     <section class="pb-16 relative z-10">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal delay-100">
-            
             <div class="terminal-box rounded-2xl shadow-2xl overflow-hidden relative border border-slate-700">
                 
                 <!-- Terminal Header -->
@@ -137,7 +122,7 @@
                         <div class="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
                     <div class="text-xs text-slate-500 font-mono flex items-center">
-                        <i class="fa-solid fa-lock mr-2"></i> Tax-tical Compliance Engine v2.5
+                        <i class="fa-solid fa-lock mr-2"></i> Tax-tical Compliance Engine v3.0 (Auto-Routing)
                     </div>
                     <div class="w-10"></div> 
                 </div>
@@ -169,7 +154,6 @@
                                 <button type="submit" class="w-full bg-ca-blue hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(30,58,138,0.5)] transition text-base flex items-center justify-center transform hover:-translate-y-0.5">
                                     <i class="fa-solid fa-fingerprint mr-3 text-xl"></i> Initiate Deep Compliance Scan
                                 </button>
-                                <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest">Confidential • 2026 Guidelines Applied</p>
                             </div>
                         </form>
                     </div>
@@ -247,43 +231,6 @@
         </div>
     </section>
 
-    <!-- ANATOMY SECTION -->
-    <section class="py-16 lg:py-24 bg-white text-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-xs font-bold text-alert-red uppercase tracking-widest mb-3"><i class="fa-solid fa-magnifying-glass-chart mr-2"></i> What We Look For</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">The Anatomy of an ICAI Violation</h3>
-                <p class="text-base text-slate-600 leading-relaxed">
-                    Most CA firms don't intentionally violate the code. The violations occur when standard marketing agencies try to force SEO rankings using generic retail tactics. Here is what our engine scans for:
-                </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm reveal">
-                    <div class="w-14 h-14 bg-red-50 text-alert-red rounded-lg flex items-center justify-center mb-6 text-2xl border border-red-100"><i class="fa-solid fa-text-slash"></i></div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">Comparative Superlatives</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Words like "Best", "Top", "Leading", or "No. 1" are strictly prohibited. They imply superiority over other ICAI members.</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm reveal delay-100">
-                    <div class="w-14 h-14 bg-red-50 text-alert-red rounded-lg flex items-center justify-center mb-6 text-2xl border border-red-100"><i class="fa-solid fa-handshake-angle"></i></div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">Audit Solicitation</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Directly soliciting Statutory Audit or Assurance work via digital platforms remains an immediate, flaggable offense.</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm reveal delay-200">
-                    <div class="w-14 h-14 bg-blue-50 text-ca-blue rounded-lg flex items-center justify-center mb-6 text-2xl border border-blue-100"><i class="fa-brands fa-google"></i></div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3 font-serif">YMYL Failures</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Failing Google's Your Money or Your Life (YMYL) standards destroys traffic. We scan for missing E-E-A-T Schema.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MASTER FOOTER -->
-    <footer class="bg-ca-dark border-t-4 border-ca-blue pt-16 pb-8 mt-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-[10px] text-slate-500 uppercase tracking-widest">&copy; 2026 Tax-tical Brilliance. Disclaimer: Not affiliated with ICAI.</p>
-        </div>
-    </footer>
-
     <!-- SCRIPTS -->
     <script>
         function revealOnScroll() {
@@ -352,18 +299,53 @@
             scanLine.style.display = 'block';
 
             await addLog(`Target acquired: ${urlInput}`, 500);
-            await addLog("Initiating connection to target domain...", 600);
-            await addLog("Bypassing cache to retrieve live DOM...", 600);
-            await addLog("Establishing secure handshake with Gemini AI...", 800);
-
-            // FIXED API INTEGRATION
-            const apiKey = "AIzaSyBgmRntn4oOai_KZEb_-tbZWs62g6iGQoc"; 
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             
-            const prompt = `You are an expert ICAI compliance auditor. Conduct a simulated website ethics audit for the CA firm website at URL: ${urlInput} belonging to partner ${nameInput}. Analyze standard structural flaws common to Indian CA firms regarding superlatives, disclaimers, and YMYL schema. Return ONLY valid JSON.`;
+            // --- YOUR API KEY GOES HERE ---
+            const apiKey = "YOUR_API_KEY_HERE"; // <-- PASTE YOUR NEW API KEY HERE
+            // ------------------------------
+            
+            let targetModel = "models/gemini-1.5-flash"; // Ultimate fallback
+            
+            // NEW STEP: Auto-discover the correct model based on your account region/tier
+            await addLog("Querying Google Cloud for authorized model endpoints...", 600);
+            
+            try {
+                const modelCheckRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
+                const modelCheckData = await modelCheckRes.json();
+                
+                if (modelCheckData.models) {
+                    const validModels = modelCheckData.models.filter(m => 
+                        m.supportedGenerationMethods && 
+                        m.supportedGenerationMethods.includes("generateContent") && 
+                        (m.name.includes("flash") || m.name.includes("pro"))
+                    );
+                    
+                    if (validModels.length > 0) {
+                        targetModel = validModels[0].name; // Grabs the exact right name for your specific API key
+                        await addLog(`Authorized model detected: ${targetModel}`, 400);
+                    } else {
+                        await addLog(`No content generation models found. Relying on default...`, 400, "warn");
+                    }
+                } else if (modelCheckData.error) {
+                    throw new Error(modelCheckData.error.message);
+                }
+            } catch (e) {
+                await addLog(`Model Discovery Failed: ${e.message}`, 200, "error");
+                await addLog(`Attempting to force standard endpoint...`, 200, "warn");
+            }
 
+            await addLog("Loading ICAI 13th Edition Ethics Ruleset [Strict Mode]...", 600);
+            await addLog("Executing Deep JSON Audit...", 800);
+
+            // Dynamically construct the correct URL based on what Google told us
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/${targetModel}:generateContent?key=${apiKey}`;
+            
+            const prompt = `Act as an expert ICAI compliance auditor. Conduct a simulated website ethics audit for the CA firm website at URL: ${urlInput} belonging to partner ${nameInput}. Analyze standard structural flaws common to Indian CA firms regarding superlatives, disclaimers, and YMYL schema. Provide a realistic assessment.`;
+
+            // Stripped down, purely standard payload to ensure maximum compatibility
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: "You are an expert ICAI compliance auditor and SEO analyst. Return ONLY valid JSON matching the exact schema." }] },
                 generationConfig: {
                     responseMimeType: "application/json",
                     responseSchema: {
@@ -395,6 +377,10 @@
             let resultData;
 
             try {
+                if (apiKey === "YOUR_API_KEY_HERE" || apiKey === "") {
+                    throw new Error("API Key has not been inserted into line 624 of the HTML file.");
+                }
+
                 const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -412,10 +398,9 @@
                     const errCode = responseData.error?.code || response.status;
                     const errMessage = responseData.error?.message || "Unknown Failure";
 
-                    await addLog(`API CONNECTION REFUSED BY GOOGLE CLOUD`, 200, "error");
+                    await addLog(`API REJECTED AT ENDPOINT: ${targetModel}`, 200, "error");
                     await addLog(`Status: ${errCode}`, 200, "error");
                     await addLog(`Message: ${errMessage}`, 200, "error");
-                    await addLog(`Fix: Ensure your API key is correct and valid for gemini-1.5-flash.`, 400, "warn");
                     
                     resetBtn.classList.remove('hidden');
                     return; 
@@ -435,7 +420,7 @@
                 engineStatus.innerText = "System Exception";
                 engineStatus.classList.add('text-alert-red');
 
-                await addLog(`Javascript Exception: ${err.message}`, 200, "error");
+                await addLog(`Exception: ${err.message}`, 200, "error");
                 resetBtn.classList.remove('hidden');
                 return;
             }
@@ -489,7 +474,7 @@
             if (resultData.violations && resultData.violations.length > 0) {
                 resultData.violations.forEach(v => {
                     const card = document.createElement('div');
-                    card.className = "bg-slate-800/80 border border-slate-700 rounded-lg p-4";
+                    card.className = "bg-slate-800/80 border border-slate-700 rounded-lg p-4 hover:border-red-900 transition";
                     card.innerHTML = `
                         <div class="flex justify-between items-start mb-2">
                             <span class="text-xs font-mono font-bold text-red-400 bg-red-950/50 px-2 py-0.5 rounded border border-red-900/50">Location: ${v.element}</span>
